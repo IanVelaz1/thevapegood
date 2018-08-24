@@ -1,0 +1,81 @@
+<app-nav-front></app-nav-front>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <p class="titulo-producto texto">Detalle de producto</p>
+    </div>
+  </div>
+ <br>
+ <div class="row">
+   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12" >
+     <div class="img-container" style="border: 1px solid #E8E8E8">
+        <img src="{{imagenProd}}" class="img-fluid" alt="">
+     </div>
+   </div>
+   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+     <div class="row">
+       <div class="col-12">
+         <p class="titulo texto">{{objetoProducto.nombreProd}}</p>
+         <bar-rating [(rate)]="rate" [readOnly]="true" [max]="5"></bar-rating>
+       </div>
+     </div>
+     <br>
+     <div class="row">
+       <div class="col-12">
+         <a routerLink="" class="proveedor texto">{{objetoProducto.proveedoresProd[0].nombreProv}}</a>
+       </div>
+     </div>
+     <div class="row">
+       <div class="col-12">
+         <p class="overview texto">Etiquetas</p>
+       </div>
+     </div>
+     <div class="row">
+       <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 tags" *ngFor="let tag of objetoProducto.tagsProd" style="text-align: center;">
+          {{tag.nombreTag}}
+       </div>
+     </div>
+     <br>
+     <div class="row">
+        <div class="col-12">
+         <p class="precio">{{objetoProducto.precioVentaProd | currency}}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <button class="btn-carrito"><span><i class="fas fa-cart-plus"></i> </span>AGREGAR AL CARRITO</button>
+        </div>
+      </div>
+  </div>
+ </div>
+ <div class="row" style="margin-top: 10px;">
+   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+     <div class="row">
+        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3" style="height: 80px;" *ngFor="let imagen of objetoProducto.imagenesProd" (click)="verImagen(imagen.secure_url)" >
+            <img src="{{imagen.secure_url}}" class="img-fluid" alt="" style="border: 1px solid #E8E8E8; border-radius: 5px; cursor: pointer;">
+        </div>
+     </div>
+   </div>
+ </div>
+ <br>
+ <br>
+ <div class="row">
+   <div class="col-12" style="border: 1px solid #E8E8E8; border-top: none;">
+      <tabset >
+          <tab heading="Descripción" id="tab1">
+            <br>
+            <p class="descripcion" [innerHTML]="objetoProducto.descripcionProd"></p>
+          </tab>
+          <tab heading="Reviews">
+              <br>
+          </tab>
+          <tab heading="Preguntas">
+              <br>
+          </tab>
+        </tabset>
+   </div>
+ </div>
+</div>
+<br>
+<app-footer class="sticky-bottom"></app-footer>

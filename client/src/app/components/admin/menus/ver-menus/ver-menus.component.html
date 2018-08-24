@@ -1,0 +1,47 @@
+<app-navbars></app-navbars>
+<app-navbar></app-navbar>
+<ng-template #template>
+  <div class="modal-body text-center">
+    <p>Seguro que desea eliminar el elemento de navegacion?</p>
+    <button type="button" class="btn btn-default" (click)="eliminarNav()">Si</button>
+    <button type="button" class="btn btn-primary" (click)="cancelarNav()">No</button>
+  </div>
+</ng-template>
+<div class="body-container">
+  <div class="container-fluid">
+    <br>
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="row" style="text-align: center;">
+              <div class="col-12">
+                <h2>Control Navegacion</h2>
+              </div>
+            </div>
+            <div class="row" style="text-align:right;">
+              <div class="col-12">
+                <a routerLink="/admin/interfaz/navegacion/agregar" class="btn btn-success">Agregar menú</a>
+              </div>
+            </div>
+            <br>
+          </div>
+        </div>
+        <br>
+        <br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="card" *ngFor="let navbar of objetosNavegacion">
+          <div class="card-body">
+            <button style="float: right;" class="btn btn-danger" (click)="abrirModal(template,navbar._id)">Eliminar</button>
+            <ul class="list-group">
+              <li class="list-group-item" (click)="verObjetoNavbar(navbar._id)">{{navbar.tituloMenuPrin}}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

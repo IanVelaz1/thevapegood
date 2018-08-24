@@ -1,0 +1,61 @@
+<app-navbars></app-navbars>
+<div class="body-container">
+  <br>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body" style="text-align: center;">
+             <h2>Agregar Elemento de Navegacion</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="row" style="text-align: right;">
+              <div class="col-12">
+                <!--
+   <button class="btn btn-danger" (click)="eliminarElemento(i)">
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+                -->
+             
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-4">
+                <label for="titulo-link">Titulo</label>
+                <input id="titulo-link" type="text" class="form-control" [(ngModel)]="objetoNavegacion.titulo">
+              </div>
+              <div class="col-4">
+                <label for="selectOpt">Tipo</label>
+                <select id="selectOpt"  [(ngModel)]="objetoNavegacion.tipo" class="form-control" name="tipo">
+                  <option selected value="1">Pagina</option>
+                  <option value="2">Enlace Externo</option>
+                </select>
+              </div>
+              <div class="col-4" *ngIf="objetoNavegacion.tipo==1">
+                <label for="pagina">Pagina</label>
+                <input type="text" id="pagina" class="form-control" [(ngModel)]="objetoNavegacion.pagina">
+              </div>
+              <div class="col-4" *ngIf="objetoNavegacion.tipo==2">
+                <label for="pagina">Enlace</label>
+                <input type="text" id="pagina" class="form-control" [(ngModel)]="objetoNavegacion.enlace">
+              </div>
+            </div>
+            <br>
+            <div class="row" style="text-align:right;">
+                <div class="col-12">
+                  <button class="btn btn-success" (click)="guardarNavbar()">Guardar</button>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

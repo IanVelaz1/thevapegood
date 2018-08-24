@@ -1,0 +1,36 @@
+<div class="footer-container">
+  <div class="row">
+     <div class="col-xl-2 col-lg-2 col-md-4 col-sm-12 col-11 col-footer1" *ngFor="let nav of elementosNavegacion" >
+        <a routerLink="/colecciones/{{nav.coleccion}}" *ngIf="nav.tipo=='2'" class="elementosNav">{{nav.titulo}}</a>
+     </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12" style="text-align: center;">
+       <p class="newsLetter"> Suscribirse para el Newsletter</p>
+    </div>
+    <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-12">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="mail@ejemplo.com" aria-label="mail@ejemplo.com" aria-describedby="button-addon2">
+        <div class="input-group-append">
+          <button class="btn-sub" type="button" id="button-addon2">Suscribirse</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1" style="text-align: center;">
+    <p style="font-size: 125%;">Redes:</p>
+    </div>
+    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3" style="text-align: center;">
+      <i class="fab fa-facebook-f fa-2x"></i>
+      <i class="fab fa-pinterest-p fa-2x"></i>
+      <i class="fab fa-instagram fa-2x"></i>
+      <i class="fab fa-google-plus-g fa-2x"></i>
+    </div>
+  </div>
+  <br>
+  <div class="footer-container-2 ">
+      <div class="row">
+    
+      </div>
+    </div>
+</div>

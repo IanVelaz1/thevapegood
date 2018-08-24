@@ -1,0 +1,13 @@
+.container-fluid{
+  height: 100vh;
+  overflow-y: auto;
+  background-color: #F4F6F8;
+}
+
+.btn-primary,.btn-info,.btn-warning{
+  margin-bottom: 10px;
+}
+
+quill-editor{
+  margin-bottom: 10px;
+}

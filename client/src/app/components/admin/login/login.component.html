@@ -1,0 +1,38 @@
+<div class="body-container">
+   <div class="container-fluid">
+      <div class="row" style="height:100vh;">
+         <div  class="col-4" id="cont-iz">
+          
+         </div>
+         <div class="col-4" >
+           <div class="jumbotron" id="cont-dr">
+              <div class="row">
+                  <div class="col-12" style="text-align: center;">
+                    <h2>Bienvenido Admin!</h2>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-12">
+                          <div class="form-group">
+                            <label for="exampleInputEmail1">Direccion Email</label>
+                            <input type="email" class="form-control" [(ngModel)]="admin.email" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
+                            <label for="exampleInputEmail1" style="color: red" *ngIf="success==false">Mail o contraseña incorrecto</label>
+                          </div>
+                          <div class="form-group">
+                            <label for="exampleInputPassword1">Contraseña</label>
+                            <input type="password" [(ngModel)]="admin.password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
+                          </div>
+                          <br>
+                          <div class="sim-button button28" (click)="iniciarSesion()"><span>Iniciar Sesión</span></div>
+                  </div>
+                </div>
+           </div>
+           
+          
+         </div>
+         <div  class="col-4" id="cont-iz">
+          
+        </div>
+      </div>
+   </div>
+</div>

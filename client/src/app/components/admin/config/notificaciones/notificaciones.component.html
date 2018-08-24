@@ -1,0 +1,154 @@
+<app-navbars></app-navbars>
+<div class="container-fluid">
+  <br>
+   <div class="container">
+     <div class="row">
+       <div class="col-12">
+         <h2>Notificaciones</h2>
+       </div>
+     </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+               <div class="row">
+                 <div class="col-12">
+                    <h3>Ventas</h3>
+                 </div>
+               </div>
+               <a class="btn btn-primary" data-toggle="collapse" href="#confirmacionVenta" role="button" style="width: 100%;">Confirmación de venta</a>
+              
+               <div class="row collapse" id="confirmacionVenta">
+                   <div class="col-12">
+                      <br>
+                      <label for="tituloConfVenta">Asunto del correo</label>
+                      <quill-editor class="form-control" placeholder="Asunto del correo" [(ngModel)]="objetoNotificaciones.confirmacionOrden.asunto"></quill-editor>
+                      <label for="contConfVenta">Contenido del correo</label>
+                      <quill-editor class="form-control" placeholder="cuerpo del correo" [(ngModel)]="objetoNotificaciones.confirmacionOrden.mensaje" ></quill-editor>
+                   </div>
+               </div>
+
+               <a class="btn btn-primary" data-toggle="collapse" href="#cancelacionVenta" role="button" style="width: 100%;">Cancelación de venta</a>
+              
+               <div class="row collapse" id="cancelacionVenta">
+                   <div class="col-12">
+                      <br>
+                      <label for="tituloConfVenta">Asunto del correo</label>
+                      <quill-editor class="form-control" placeholder="Asunto del correo" [(ngModel)]="objetoNotificaciones.ordenCancelada.asunto"></quill-editor>
+                      <label for="contConfVenta">Contenido del correo</label>
+                      <quill-editor class="form-control" placeholder="cuerpo del correo" [(ngModel)]="objetoNotificaciones.ordenCancelada.mensaje"></quill-editor>
+                   </div>
+               </div>
+
+               <a class="btn btn-primary" data-toggle="collapse" href="#reembolsoVenta" role="button" style="width: 100%;">Reembolso de venta</a>
+              
+               <div class="row collapse" id="reembolsoVenta">
+                   <div class="col-12">
+                      <br>
+                      <label for="tituloConfVenta">Asunto del correo</label>
+                      <quill-editor class="form-control" placeholder="Asunto del correo" [(ngModel)]="objetoNotificaciones.reembolsoOrden.asunto"></quill-editor>
+                      <label for="contConfVenta">Contenido del correo</label>
+                      <quill-editor class="form-control" placeholder="cuerpo del correo" [(ngModel)]="objetoNotificaciones.reembolsoOrden.mensaje"></quill-editor>
+                   </div>
+               </div>
+               <div class="row">
+                <div class="col-12">
+                   <h3>Envíos</h3>
+                </div>
+              </div>
+              <a class="btn btn-info" data-toggle="collapse" href="#confirmacionEnvio" role="button" style="width: 100%;">Confirmación de envío</a>
+              
+               <div class="row collapse" id="confirmacionEnvio">
+                   <div class="col-12">
+                      <br>
+                      <label for="tituloConfVenta">Asunto del correo</label>
+                      <quill-editor class="form-control" placeholder="Asunto del correo" [(ngModel)]="objetoNotificaciones.confirmacionEnvio.asunto"></quill-editor>
+                      <label for="contConfVenta">Contenido del correo</label>
+                      <quill-editor class="form-control" placeholder="cuerpo del correo" [(ngModel)]="objetoNotificaciones.confirmacionEnvio.mensaje"></quill-editor>
+                   </div>
+               </div>
+               <a class="btn btn-info" data-toggle="collapse" href="#pedidoEnviado" role="button" style="width: 100%;">Pedido enviado</a>
+              
+               <div class="row collapse" id="pedidoEnviado">
+                   <div class="col-12">
+                      <br>
+                      <label for="tituloConfVenta">Asunto del correo</label>
+                      <quill-editor class="form-control" placeholder="Asunto del correo" [(ngModel)]="objetoNotificaciones.pedidoEnviado.asunto"></quill-editor>
+                      <label for="contConfVenta">Contenido del correo</label>
+                      <quill-editor class="form-control" placeholder="cuerpo del correo" [(ngModel)]="objetoNotificaciones.pedidoEnviado.mensaje"></quill-editor>
+                   </div>
+               </div>
+
+               <a class="btn btn-info" data-toggle="collapse" href="#pedidoEntregado" role="button" style="width: 100%;">Pedido entregado</a>
+              
+               <div class="row collapse" id="pedidoEntregado">
+                   <div class="col-12">
+                      <br>
+                      <label for="tituloConfVenta">Asunto del correo</label>
+                      <quill-editor class="form-control" placeholder="Asunto del correo" [(ngModel)]="objetoNotificaciones.pedidoEntregado.asunto"></quill-editor>
+                      <label for="contConfVenta">Contenido del correo</label>
+                      <quill-editor class="form-control" placeholder="cuerpo del correo" [(ngModel)]="objetoNotificaciones.pedidoEntregado.mensaje"></quill-editor>
+                   </div>
+                  </div>
+
+               <div class="row">
+                <div class="col-12">
+                   <h3>Confirmación usuarios</h3>
+                </div>
+              </div>
+
+              <a class="btn btn-warning" data-toggle="collapse" href="#confirmacionCreado" role="button" style="width: 100%;">Confirmación cliente creado</a>
+              
+               <div class="row collapse" id="confirmacionCreado">
+                   <div class="col-12">
+                      <br>
+                      <label for="tituloConfVenta">Asunto del correo</label>
+                      <quill-editor class="form-control" placeholder="Asunto del correo" [(ngModel)]="objetoNotificaciones.confirmacionCliente.asunto"></quill-editor>
+                      <label for="contConfVenta">Contenido del correo</label>
+                      <quill-editor class="form-control" placeholder="cuerpo del correo" [(ngModel)]="objetoNotificaciones.confirmacionCliente.mensaje"></quill-editor>
+                   </div>
+               </div>
+
+               <a class="btn btn-warning" data-toggle="collapse" href="#cambioContra" role="button" style="width: 100%;">Cambio de contraseña</a>
+              
+               <div class="row collapse" id="cambioContra">
+                   <div class="col-12">
+                      <br>
+                      <label for="tituloConfVenta">Asunto del correo</label>
+                      <quill-editor class="form-control" placeholder="Asunto del correo" [(ngModel)]="objetoNotificaciones.cambioPassword.asunto"></quill-editor>
+                      <label for="contConfVenta">Contenido del correo</label>
+                      <quill-editor class="form-control" placeholder="cuerpo del correo" [(ngModel)]="objetoNotificaciones.cambioPassword.mensaje"></quill-editor>
+                   </div>
+               </div>
+
+               <div class="row">
+                <div class="col-12">
+                   <h3>Confirmación para admin</h3>
+                </div>
+              </div>
+
+               <a class="btn btn-success" data-toggle="collapse" href="#confirmacionOrdenAdmin" role="button" style="width: 100%;">Confirmación de orden</a>
+              
+               <div class="row collapse"  id="confirmacionOrdenAdmin">
+                   <div class="col-12">
+                      <br>
+                      <label for="tituloConfVenta">Asunto del correo</label>
+                      <quill-editor class="form-control" placeholder="Asunto del correo" [(ngModel)]="objetoNotificaciones.confirmacionOrdenAdmin.asunto"></quill-editor>
+                      <label for="contConfVenta">Contenido del correo</label>
+                      <quill-editor class="form-control" placeholder="cuerpo del correo" [(ngModel)]="objetoNotificaciones.confirmacionOrdenAdmin.mensaje"></quill-editor>
+                   </div>
+               </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-12">
+          <button class="btn btn-success" style="padding: 10px; float: right;" *ngIf="isEditable==false" (click)="guardarNotificaciones()">Guardar</button>
+          <button class="btn btn-success" style="padding: 10px; float: right;" *ngIf="isEditable==true" (click)="editarNotificaciones()">Guardar cambios</button>
+        </div>
+      </div>
+   </div>
+</div>

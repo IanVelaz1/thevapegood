@@ -1,0 +1,21 @@
+.container-fluid{
+  background-color: #F4F6F8;
+  height: 100vh;
+  
+}
+
+.tag{
+  width: 100%;
+  text-align: center;
+  background-color: #1C2B36;
+  color: white;
+  border-radius: 15px;
+}
+
+.igual{
+  outline: red;
+}
+
+.igual-text{
+  color: red !important;
+}

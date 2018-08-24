@@ -1,0 +1,48 @@
+<app-navbars></app-navbars>
+<div class="container-fluid">
+  <br>
+  <div class="container">
+      <div class="row">
+          <div class="col-12">
+           <h2>Agregar Coleccion</h2>
+          </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+               <div class="form-group">
+                 <label for="nombre">Nombre Coleccion</label>
+                 <input type="text" [(ngModel)]="objetoColeccion.nombreCol" class="form-control" placeholder="nombre coleccion">
+                </div>
+               
+                  <label for="descripcion">Descripcion</label>
+                  <quill-editor [(ngModel)]="objetoColeccion.descripcionCol" name="descripcionProd" class="form-control" placeholder="descripcion">
+                    </quill-editor>
+                <br>
+                <div class="form-group" *ngIf="visibleImagenes==true">
+                    <file-drop headertext="Arrastrar imagenes aqui " name="recfile" (onFileDrop)="dropped($event)" (onFileOver)="fileOver($event)"
+                    (onFileLeave)="fileLeave($event)">
+                    <span></span>
+                  </file-drop>  
+                </div>
+                <div class="row" *ngFor="let imagen of arrayImagenesProducto">
+                  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12"></div>
+                  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12"><img src="{{imagen.secure_url}}" width="100%;" class="img-fluid" alt="">
+                    <button class="btn btn-danger" *ngIf="visibleImagenes==false" (click)="eliminarFoto(imagen.public_id)" style="width: 100%;">Eliminar</button>
+                  </div>
+                  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12"></div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>     
+      <br>
+      <div class="row">
+        <div class="col-12">
+          <button class="btn btn-success" style="float: right; padding: 10px;" (click)="guardarColeccion()">Guardar Coleccion</button>
+        </div>
+      </div>
+  </div>
+</div>

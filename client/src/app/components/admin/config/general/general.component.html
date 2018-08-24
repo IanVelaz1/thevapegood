@@ -1,0 +1,84 @@
+<app-navbars></app-navbars>
+<div class="container-fluid">
+   <div class="container">
+      <div class="row">
+        <div class="col-12">
+           <h2>Opciones generales</h2>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+         <div class="col-12">
+            <div class="card">
+              <div class="card-body">
+                <div class="form-group">
+                   <label for="nombreTienda">Nombre de la tienda</label>
+                   <input type="text" class="form-control" [(ngModel)]="objetoConfiguracion.nombreTienda">
+                </div>
+                
+                <div class="row">
+                  <div class="col-12">
+                     <h3>Direccion de la tienda</h3>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <div class="form-group">
+                       <label for="nombreLegal">Nombre legal de la tienda</label>
+                       <input type="text" class="form-control" [(ngModel)]="objetoConfiguracion.nombreLegal">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <div class="form-group">
+                       <label for="nombreLegal">Télefono</label>
+                       <input type="text" class="form-control" [(ngModel)]="objetoConfiguracion.telefonoTienda">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <div class="form-group">
+                       <label for="nombreLegal">Calle</label>
+                       <input type="text" class="form-control" [(ngModel)]="objetoConfiguracion.calleTienda">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <div class="form-group">
+                       <label for="nombreLegal">Código postal</label>
+                       <input type="text" class="form-control" [(ngModel)]="objetoConfiguracion.cpTienda">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <div class="form-group">
+                       <label for="nombreLegal">Ciudad</label>
+                       <input type="text" class="form-control" [(ngModel)]="objetoConfiguracion.ciudadTienda">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <div class="form-group">
+                       <label for="nombreLegal">Estado</label>
+                       <input type="text" class="form-control" [(ngModel)]="objetoConfiguracion.estadoTienda">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+         </div>
+      </div>
+      <br>
+      <div class="row">
+         <div class="col-12">
+            <button class="btn btn-success" *ngIf="editarConfig==false" style="padding: 10px;float: right;" (click)="guardarConfiguracion()">Guardar</button>
+            <button class="btn btn-success" *ngIf="editarConfig==true" style="padding: 10px;float: right;" (click)="editarConfiguracion()">Guardar cambios </button>
+         </div>
+      </div>
+   </div>
+</div>

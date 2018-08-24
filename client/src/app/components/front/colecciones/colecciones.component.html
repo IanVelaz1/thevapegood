@@ -1,0 +1,206 @@
+<app-nav-front></app-nav-front>
+<div class="container">
+  <div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="dialog-sizes-name1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-12">
+              <button type="button" class="close pull-right" (click)="lgModal.hide()" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-8">
+              <ngu-carousel [inputs]="carouselOne" *ngIf="objetoProducto.imagenesProd.length>0">
+                <ngu-item *ngFor="let imagen of objetoProducto.imagenesProd" NguCarouselItem>
+                  <!--
+                      <div class="tile" [ngStyle]="{'background-image': 'url(' + imagen.secure_url + ')'}">
+                      </div>
+                      -->
+                  <img src="{{imagen.secure_url}}" max-height="100%" class="img-fluid" alt="">
+                </ngu-item>
+                <button NguCarouselPrev class='leftRs'></button>
+                <button NguCarouselNext class='rightRs'></button>
+              </ngu-carousel>
+              <img src="" class="img-fluid" alt="">
+            </div>
+            <div class="col-4">
+              <div class="row">
+                <div class="col-12">
+                  <p class="modal-titulo">{{objetoProducto.nombreProd}}</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <p class="modal-texto" [innerHTML]='objetoProducto.descripcionProd'></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <p class="modal-precio">${{objetoProducto.precioVentaProd}}</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12" >
+                  <button class="btn-cart-modal" *ngIf="objetoProducto.addedCart==false" (click)="agregarCarrito(objetoProducto)">Agregar al carrito</button>
+                  <button class="btn-cart-modal" *ngIf="objetoProducto.addedCart==true" (click)="verCarrito()">Ver en el carrito</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-12">
+      <p class="titulo-coleccion">{{coleccionRecuperada.nombreCol}}</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <!--<img src="{{coleccionRecuperada.imagenCol.secure_url}}" class="img-col" alt="">-->
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+      <div class="filter-container">
+        <div class="row">
+          <div class="col-12">
+            <p style="border-bottom: 1px solid #666666; text-align: center;" class="til-fil">Filtros</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12" style="text-align: center;">
+            <p class="til-fil">Todos</p>
+          </div>
+        </div>
+        <div class="row" style="border-bottom: 1px solid white;">
+          <div class="col-12">
+            <div class="list-group">
+              <button type="button" class="list-group-item list-group-item-action" (click)="todosLosProductos()">
+                Todos los productos
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12" style="text-align: center;">
+            <p class="til-fil">Marca</p>
+          </div>
+        </div>
+        <div class="row" style="border-bottom: 1px solid white;">
+          <div class="col-12">
+            <div class="list-group">
+              <button type="button" class="list-group-item list-group-item-action" *ngFor="let proveedor of arrayProveedores" (click)="filtrarProveedores(proveedor._id)">
+                {{proveedor.nombreProv}}
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12" style="text-align: center;">
+            <p class="til-fil">Tags</p>
+          </div>
+        </div>
+        <div class="row" style="border-bottom: 1px solid white;">
+          <div class="col-12">
+            <div class="list-group">
+              <button type="button" class="list-group-item list-group-item-action" *ngFor="let tag of arrayTags" (click)="filtrarTag(tag._id)">
+                {{tag.nombreTag}}
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12" style="text-align: center;">
+            <p class="til-fil">Tipo</p>
+          </div>
+        </div>
+        <div class="row" style="border-bottom: 1px solid white;">
+          <div class="col-12">
+            <div class="list-group">
+              <button type="button" class="list-group-item list-group-item-action" *ngFor="let tipo of arrayTipos" (click)="filtrarTipo(tipo._id)">
+                {{tipo.tipo}}
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12" style="text-align: center;">
+            <p class="til-fil">Precio</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="form-group" style="text-align: center">
+              <label for="formControlRange">De $0 hasta ${{filtroPrecio}}</label>
+              <input type="range" class="form-control-range" id="formControlRange" [(ngModel)]="filtroPrecio" min="0" max="{{precioMaximo}}">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <button class="btn-cart-modal" (click)="aplicarFiltroPrecio()">Aplicar filtro</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12" *ngIf="filtered==false">
+      <div class="row">
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12" *ngFor="let producto of arrayProductos">
+          <div class="producto">
+            <br>
+            <div class="row cont-prods" (click)="verProducto(producto._id)">
+              <div class="col-12">
+                <img *ngIf="producto.imagenesProd[0]" src="{{producto.imagenesProd[0].secure_url}}" alt="" class="img-fluid img-prod">
+              </div>
+            </div>
+            <div class="row cont-prods" (click)="verProducto(producto._id)">
+              <div class="col-12" style="text-align: center;">
+                <p class="nombreColeccion">{{producto.coleccionesProd[0].nombreCol}}</p>
+              </div>
+            </div>
+            <div class="row cont-prods" (click)="verProducto(producto._id)">
+              <div class="col-12" style="text-align: center;">
+                <p class="nombreProducto">{{producto.nombreProd}}</p>
+              </div>
+            </div>
+            <div class="row cont-prods" (click)="verProducto(producto._id)">
+              <div class="col-12">
+                <div class="rating-container">
+                  <bar-rating [(rate)]="rate" [readOnly]="true" [max]="5"></bar-rating>
+                </div>
+              </div>
+            </div>
+            <div class="row cont-prods" (click)="verProducto(producto._id)">
+              <div class="col-12" style="text-align: center;">
+                <p class="precio">${{producto.precioVentaProd}}</p>
+              </div>
+            </div>
+            <div class="row cont-prods" style="max-width: 100%;">
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                <button class="btn-ver-prod" (click)="abrirModal(producto)" (click)="lgModal.show()">
+                  <i class="fas fa-eye"></i>
+                </button>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                <button class="btn-agregar-prod" (click)="agregarCarrito(producto)" *ngIf="producto.addedCart==false">
+                  <i class="fas fa-cart-plus"></i>
+                </button>
+                <button class="btn-agregar-prod" *ngIf="producto.addedCart==true">
+                  <i class="far fa-credit-card"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>

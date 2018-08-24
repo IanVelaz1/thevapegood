@@ -1,0 +1,50 @@
+<app-navbars></app-navbars>
+<div class="container-fluid">
+  <br>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2>Envios</h2>
+        <a routerLink="/admin/envios/agregar" style="float: right;" class="btn btn-success">Agregar nuevo metodo de envío</a>
+      </div>
+    </div>
+    <br>
+     <div class="row">
+       <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+              <div class="row row-1">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-4 col-4" style="text-align: center;">
+                  Nombre
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-4" style="text-align: center;">
+                  Tipo
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-4" style="text-align: center;">
+                  Método de envío
+                </div>
+              </div>
+              <br>
+              <div class="row row-2" *ngFor="let envio of arrayEnvios" (click)="navegarEnvio(envio._id)">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-4 col-4" style="text-align: center;">
+                  <p class="texto">
+                  {{envio.nombreEnvio}}
+                  </p>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-4" style="text-align: center;">
+                  <p class="texto">
+                    {{envio.tipoEnvio}}
+                  </p>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-4" style="text-align: center;">
+                  <p class="texto">
+                    {{envio.metodoEnvio}}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+       </div>
+     </div>
+  </div>
+</div>

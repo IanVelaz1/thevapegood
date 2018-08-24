@@ -1,0 +1,16 @@
+.form-control{
+  margin-bottom: 5px;
+}
+
+.required{
+  color: #408DE4;
+}
+
+.row-direccion{
+  border: 1px solid #e1e1e1;
+  border-radius: 5px;
+}
+
+.texto{
+  text-align: center;
+}

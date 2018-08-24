@@ -1,0 +1,29 @@
+.container-fluid{
+  width: 100%;
+  height: 100vh;
+  background-color: #F4F6F8;
+}
+
+.row-col{
+  
+  margin-bottom: 10px;
+  border-bottom: 1px solid #DFDFDF;
+  width: 100%;
+  height: 100px;
+  transition: 0.3s;
+}
+
+img.fluid{
+  max-height: 100px!important; 
+}
+
+.row-col:hover{
+  background: #F4F6F8;
+  cursor: pointer;
+}
+
+#texto{
+  position: relative;
+  top: 40%;
+  font-size: 110%;
+}

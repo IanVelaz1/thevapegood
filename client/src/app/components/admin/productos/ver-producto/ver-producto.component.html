@@ -1,0 +1,292 @@
+<app-navbars></app-navbars>
+<div class="container-body">
+  <div class="container-fluid">
+    <br>
+    <div class="row">
+      <div class="col-12">
+        <h2>Agregar producto</h2>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-body">
+                <form>
+                  <div class="form-group">
+                    <label for="nombreProd" class="labels">Titulo</label>
+                    <input type="email" [(ngModel)]="objetoProducto.nombreProd" name="nombreProd" class="form-control" id="nombreProd" aria-describedby="emailHelp"
+                      placeholder="Nombre Producto">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1" class="labels">Descripcion</label>
+                    <quill-editor [(ngModel)]="objetoProducto.descripcionProd" name="descripcionProd" class="form-control" placeholder="descripcion">
+                    </quill-editor>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+
+        <div class="row">
+
+          <div class="col-12">
+            <div class="card">
+              <div class="card-body">
+                <div class="col-12">
+                  <form #form="ngForm">
+                    <input type="file" (change)="subirImagenes($event)" name="imagenes" id="hidden" placeholder="subir fotografia" accept=".jpg, .jpeg, .png"
+                      multiple>
+                    <label for="hidden" id="labelUpload" style="float: right;">Seleccionar imagen</label>
+                  </form>
+
+                </div>
+                <!-- <dropzone [message]="'Click aqui o arrastrar imagen para subir'" [config]="config" (error)="onUploadError($event)" (addedFile)="addedFile($event)" (success)="onUploadSuccess($event)"></dropzone> ---->
+
+                <file-drop headertext="Arrastrar imagenes aqui " name="recfile" (onFileDrop)="dropped($event)" (onFileOver)="fileOver($event)"
+                  (onFileLeave)="fileLeave($event)">
+                  <span></span>
+                </file-drop>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-12">
+                    <label class="labels">Imagenes del producto</label>
+                  </div>
+                  <div class="col-4" *ngFor="let imagen of arrayImagenesProducto">
+                    <img src="{{imagen.secure_url}}" alt="" height="100%" width="100%">
+                    <button class="btn btn-danger" style="width: 100%;" (click)="eliminarImagen(imagen.public_id)">Eliminar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-body">
+                <label class="labels" for="precios">Precio</label>
+                <br>
+                <br>
+                <div class="row">
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="row">
+                      <div class="col-12">
+                        <label class="label-2">Precio
+                        </label>
+                      </div>
+                    </div>
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">$</span>
+                      </div>
+                      <input type="text" [(ngModel)]="objetoProducto.precioVentaProd" class="form-control" aria-label="Amount (to the nearest dollar)">
+                      <div class="input-group-append">
+                        <span class="input-group-text">.00</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="row">
+                      <div class="col-12">
+                        <label class="label-2">Comparar al Precio:
+                        </label>
+                      </div>
+                    </div>
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">$</span>
+                      </div>
+                      <input type="text" [(ngModel)]="objetoProducto.compararPrecioProd" class="form-control" aria-label="Amount (to the nearest dollar)">
+                      <div class="input-group-append">
+                        <span class="input-group-text">.00</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" [(ngModel)]="objetoProducto.cobrarImpuestosProd" type="checkbox" value="" id="defaultCheck1">
+                  <label class="form-check-label label-2" for="defaultCheck1">
+                    Cobrar impuestos para este producto?
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-body">
+                <label class="labels" for="">Inventario</label>
+                <div class="row">
+                  <div class="col-12">
+                    <div class="row">
+                      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                        <label for="sku" class="label-2">SKU (Referencia de almacen)</label>
+                        <input id="sku" [(ngModel)]="objetoProducto.skuProd" class="form-control" type="text">
+                      </div>
+                      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                        <label for="sku" class="label-2">Codigo de Barras (UPC, GS1, etc...)</label>
+                        <input id="sku" [(ngModel)]="objetoProducto.codigoProd" class="form-control" type="text">
+                      </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="form-group form-check">
+                          <input type="checkbox" [(ngModel)]="objetoProducto.invProd" class="form-check-input" id="exampleCheck1">
+                          <label class="form-check-label" for="exampleCheck1" class="label-2">Rastrear inventario?</label>
+                        </div>
+                        <div class="form-group" *ngIf="objetoProducto.invProd==true">
+                          <label for="inventario" class="label-2">Existencias</label>
+                          <input type="text" class="form-control" [(ngModel)]="objetoProducto.existenciasProd">
+                        </div>
+                        <div class="form-group form-check" *ngIf="objetoProducto.invProd==true">
+                          <input type="checkbox" [(ngModel)]="objetoProducto.permitirCompraSinInv" class="form-check-input" id="exampleCheck1" id="permitirCompra">
+                          <label class="form-check-label" for="permitirCompra" class="label-2">Permitir que los clientes lo compren sin inventario?</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-body">
+                <label class="labels" for="">Envio</label>
+                <div class="form-group form-check">
+                  <input type="checkbox" [(ngModel)]="objetoProducto.requiereEnvio" class="form-check-input" id="envio">
+                  <label class="form-check-label" for="envio">Este producto requiere envio?</label>
+                </div>
+                <div class="row" *ngIf="objetoProducto.requiereEnvio==true">
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                    <label for="peso" class="labels">Peso</label>
+                    <input type="number" [(ngModel)]="objetoProducto.pesoProd" class="form-control">
+                  </div>
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="form-group">
+                      <label for="peso">Unidad de peso </label>
+                      <select class="form-control" [(ngModel)]="objetoProducto.unidadPesoProd" id="peso ">
+                        <option value="kg">kg</option>
+                        <option value="oz">oz</option>
+                        <option value="lb">lb</option>
+                        <option value="gr">gr</option>
+                        <option value="lt">lt</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br>
+        </div>
+        <br>
+
+      </div>
+
+      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-body">
+                <p class="labels">Organización</p>
+                <div class="form-group">
+                  <label for="tipoProducto">Tipo de producto</label>
+                  <input type="text" [(ngModel)]="nombreTipo" (keyup)="buscarTipo()" (keyup)="guardarTipo($event)" class="form-control">
+                   <div class="list-container" *ngIf="listaTipoVisible==true">
+                    <div class="list-group">
+                      <button class="list-group-item list-group-item-action " *ngFor="let tipo of arrayTiposBusqueda" (click)="nombreTipo=tipo.tipo" (click)="listaTipoVisible=false" (click)="objetoTipo=tipo">
+                      Agregar {{tipo.tipo}}
+                      </button>
+                      <button *ngIf="btnAgregarTipoVisible" (click)="listaTipoVisible=false" class="list-group-item list-group-item-action active">( 'Enter' para crear nuevo Tipo )</button>
+                    </div>
+                   </div>
+                  <br>
+                  <label for="tipoProducto">Proveedor</label>
+                   <input type="text" [(ngModel)]="nombreProveedor" (keyup)="buscarProveedor()" (keyup)="guardarProveedor($event)" class="form-control">
+                   <div class="list-container" *ngIf="listaProvVisible">
+                    <div class="list-group">
+                      <button class="list-group-item list-group-item-action " *ngFor="let proveedor of arrayProveedoresBusqueda" (click)="nombreProveedor=proveedor.nombreProv" (click)="listaProvVisible=false" (click)="objetoProveedor=proveedor">
+                        Agregar {{proveedor.nombreProv}} (Click)
+                      </button>
+                      <button *ngIf="btnAgregarProvVisible" (click)="listaProvVisible=false" class="list-group-item list-group-item-action active">( 'Enter' para crear nuevo proveedor )</button>
+                    </div>
+                   </div>
+                </div>
+                <div class="row" style="border-top: 1px solid #EAEDF0">
+                    <div class="col-12">
+                      <br>
+                      <p class="labels">Colecciones</p>
+                      <div class="form-group">
+                        <input type="text" class="form-control" [(ngModel)]="nombreColeccion" (keyup)="buscarColecciones()">
+                        <div class="list-container" *ngIf="listaColeccionesVisible==true">
+                            <div class="list-group">
+                              <button class="list-group-item list-group-item-action " *ngFor="let coleccion of arrayColeccionesBusqueda" (click)="listaColeccionesVisible=false" (click)="agregarArrayColecciones(coleccion,coleccion._id)">
+                               {{coleccion.nombreCol}}
+                              </button>
+                            </div>
+                           </div>
+                      </div>
+                    </div>
+                    <div class="col-3" *ngFor="let coleccion of arrayColeccionesSeleccionadas; let i =index" style="text-align: center;">
+                        <p class="tags">{{coleccion.nombreCol}} <button class="btn btn-danger" (click)="eliminarColeccion(i,coleccion._id)"><i class="fas fa-trash-alt" ></i></button></p>
+                        
+                      </div>
+                  </div>
+                <div class="row" style="border-top: 1px solid #EAEDF0">
+                  <div class="col-12">
+                    <br>
+                    <div>
+                        <p class="labels">Etiquetas</p>
+                        <input type="text" [(ngModel)]="nombreTag" (keyup)="buscarTags()" class="form-control" (keyup)="guardarTags($event)">
+                        <div class="list-container" *ngIf="listaTagsVisible==true">
+                         <div class="list-group">
+                           <button class="list-group-item list-group-item-action " *ngFor="let tag of arrayTagsBusqueda" (click)="listaTagsVisible=false" (click)="agregarArrayTags(tag)">
+                            {{tag.nombreTag}}
+                           </button>
+                           <button *ngIf="btnAgregarTagsVisible" (click)="listaTagsVisible=false" (click)="guardarProveedor()" class="list-group-item list-group-item-action active">( 'Enter' para crear Tag nueva )</button>
+                         </div>
+                        </div>
+          </div>
+                  </div>
+                  <div class="col-3" *ngFor="let tag of arrayTagsSeleccionadas" style="text-align: center;">
+                    <p class="tags">{{tag.nombreTag}} <button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></p>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+            <button class="btn btn-success" id="btn-cancelar">Cancelar</button>
+          </div>
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+            <button class="btn btn-success" id="btn-guardar" (click)="editarProducto()" style="width: 100%;">Guardar Producto</button>
+          </div>
+        </div>
+      </div>

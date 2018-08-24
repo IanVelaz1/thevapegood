@@ -1,0 +1,116 @@
+<app-navbars></app-navbars>
+<div class="body-container">
+  <div class="container-fluid">
+    <br>
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body" style="text-align: center;">
+              <h2>
+                  Agregar pagina
+                </h2>
+                <div class="col-12">
+                  <button class="btn btn-success" (click)="editarPagina()" style="float: right;">Guardar Cambios</button>
+                  <button class="btn btn-danger" style="float: left;" (click)="eliminarPagina()">Eliminar Pagina</button>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    <br>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-12">
+          <div class="card">
+              <div class="card-body">
+                <label for="tituloPagina">Titulo:</label>
+                     <input [(ngModel)]="objetoPagina.titulo" id="tituloPagina" type="text" class="form-control">
+                     <label for="tituloPagina">Descripcion:</label>
+                     <input [(ngModel)]="objetoPagina.descripcion" id="tituloPagina" type="text" class="form-control">
+                     <label for="tituloPagina">url :</label>
+                     <input [(ngModel)]="objetoPagina.urlVideo" id="tituloPagina" type="text" class="form-control">      
+              </div>
+           </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+       <div class="col-12">
+         <div class="card">
+            <div class="card-body">
+              <label for="imagenesCarousel"> Imagenes</label>
+              <file-drop headertext="Arrastrar imagenes aqui" name="recfile" (onFileDrop)="dropped($event)" >
+                  <span></span>
+                </file-drop>
+            </div>
+         </div>
+       </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">
+              Imagenes de trabajo
+            </h5>
+            <div class="row">
+              <div class="col-3" style="margin-bottom: 50px;" *ngFor="let imagenes of objetoPagina.imagenesCarousel">
+                <img width="100%" height="100%" src="{{imagenes.secure_url}}" alt="">
+                <button class="btn btn-danger" (click)="eliminarFotoCar(imagenes.public_id)" style="width: 100%">Eliminar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<br>
+<!---
+    <div class="row">
+        <div class="col-12">
+          <div class="card">
+             <div class="card-body">
+               <label for="imagenesCarousel"> Imagenes Galeria</label>
+               <file-drop headertext="Arrastrar imagenes aqui" name="recfile" (onFileDrop)="droppedCollection($event)">
+                   <span></span>
+                 </file-drop>
+             </div>
+          </div>
+        </div>
+     </div>
+     <br>
+     <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">
+              Imagenes Coleccion
+            </h5>
+            <div class="row">
+              <div class="col-3" style="margin-bottom: 50px;" *ngFor="let imagenes of objetoPagina.imagenesColeccion">
+                <img width="100%" height="100%" src="{{imagenes.secure_url}}" alt="">
+                <button (click)="eliminarFotoCol(imagenes.public_id)" class="btn btn-danger" style="width: 100%">Eliminar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    ---->
+  </div>
+</div>
+
+<div class="" [ngClass]="{'modal-inv':uploading==false,'modal-container':uploading==true}">
+     <div class="row">
+       <div class="col-12" style="text-align: center;">
+          <h4>Subiendo Imagenes</h4>
+       </div>
+     </div>
+     <div class="row">
+        <div class="col-12" style="text-align: center;">
+           <img src="https://media.giphy.com/media/xTk9ZvMnbIiIew7IpW/giphy.gif" height="80%;" width="30%;" alt="" >
+        </div>
+     </div>
+  
+  </div>

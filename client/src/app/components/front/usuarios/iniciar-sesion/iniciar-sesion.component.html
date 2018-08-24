@@ -1,0 +1,34 @@
+<app-nav-front></app-nav-front>
+<br>
+<div class="container" style=" height: 100vh;">
+  <div class="row">
+    <div class="col-12">
+       <p class="titulo">Iniciar sesión</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+       <p class="error" *ngIf="errorMsg">Email o contraseña incorrecto/s</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+       <label for="email">Email</label>
+       <input type="text" class="form-control" [(ngModel)]="objetoUsuario.emailUser">
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+      <label for="email">Contraseña</label>
+      <input type="password" class="form-control" [(ngModel)]="objetoUsuario.contraUser">
+   </div>
+  </div>
+  <br>
+  <div class="row" style="margin-bottom: 20px;">
+    <div class="col-12">
+       <button class="boton-registro" (click)="iniciarSesion()">Iniciar sesión</button>
+    </div>
+  </div>
+</div>
+<app-footer class="sticky-bottom"></app-footer>

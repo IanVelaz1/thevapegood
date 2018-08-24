@@ -1,0 +1,102 @@
+<app-navbars></app-navbars>
+<div class="container-fluid">
+  <div class="container">
+
+
+    <div class="row">
+      <div class="col-12">
+        <h2>Agregar Cliente</h2>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-12">
+        <p class="titulos">Datos de cliente</p>
+        <div class="card">
+          <div class="card-body">
+            <div class="form-group">
+              <label for="nombre">Nombre</label>
+              <input type="text" [ngClass]="{'required':requiredField==true}" [(ngModel)]="objetoUsuario.nombreUser" name="nombreUser" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="nombre">Apellido</label>
+              <input type="text" [ngClass]="{'required':requiredField==true}" [(ngModel)]="objetoUsuario.apellidoUser" name="apellidoUser" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="nombre">Email</label>
+              <input type="email" [(ngModel)]="objetoUsuario.emailUser" name="emailUser" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="nombre">Teléfono</label>
+              <input type="email" [(ngModel)]="objetoUsuario.telefonoUser" name="telefonoUser" class="form-control">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <br>
+        <p class="titulos">Direccion</p>
+        <div class="card">
+          <div class="card-body">
+
+            <div class="form-group">
+              <label for="nombre">Calle</label>
+              <input type="text" [(ngModel)]="objetoUsuario.direccionUser.calleUser" name="calleUser" class="form-control">
+            </div>
+            <div class="row">
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                  <div class="form-group">
+                      <label for="nombre">Colonia</label>
+                      <input type="text" [(ngModel)]="objetoUsuario.direccionUser.coloniaUser" name="coloniaUser" class="form-control">
+                    </div>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                  <div class="form-group">
+                      <label for="nombre">Codigo postal</label>
+                      <input type="text" [(ngModel)]="objetoUsuario.direccionUser.codigoPostalUser" name="codigoPostalUser" class="form-control">
+                    </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                <div class="form-group">
+                  <label for="nombre">Numero Int.</label>
+                  <input type="text" [(ngModel)]="objetoUsuario.direccionUser.numeroInteriorCalle" name="numeroInteriorCalle" class="form-control">
+                </div>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                <div class="form-group">
+                  <label for="nombre">Numero Ext.</label>
+                  <input type="text"  [(ngModel)]="objetoUsuario.direccionUser.numeroCalle" name="numeroCalle" class="form-control">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                  <div class="form-group">
+                    <label for="nombre">Estado</label>
+                    <input type="text" [(ngModel)]="objetoUsuario.direccionUser.estadoUser" name="estadoUser" class="form-control">
+                  </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                  <div class="form-group">
+                    <label for="nombre">Ciudad</label>
+                    <input type="text" [(ngModel)]="objetoUsuario.direccionUser.ciudadUser" name="ciudadUser" class="form-control">
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-12">
+         <button class="btn btn-success" style="padding:10px; float: right;" (click)="editarUsuario()">
+           Guardar cliente
+         </button>
+      </div>
+    </div>
+  </div>
+  <br>
+</div>

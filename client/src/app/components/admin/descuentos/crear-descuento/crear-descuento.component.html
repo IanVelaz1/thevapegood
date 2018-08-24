@@ -1,0 +1,103 @@
+<app-navbars></app-navbars>
+<div class="container-fluid">
+  <br>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2>Agregar Promocion</h2>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="form-group">
+              <label for="nombre">Nombre promocion</label>
+              <input type="text" [(ngModel)]="objetoPromocion.nombreProm" [ngClass]="{'igual':nombreIgual==true}" name="nombreProm" class="form-control" placeholder="Ejemplo: #NAVIDAD">
+              <small id="emailHelp" *ngIf="nombreIgual==true" class="form-text text-muted igual-text">Ya existe una promocion con este nombre</small>
+            </div>
+            
+            <div class="form-group">
+               <label for="descripcion">Descripcion</label>
+               <textarea name="" id="" [(ngModel)]="objetoPromocion.descripcionProm" name="descripcionProm" cols="30" rows="5" class="form-control"></textarea>
+            </div>
+<!--
+            <div class="form-group">
+              <label for="Producto">Producto/s</label>
+              <input type="text" class="form-control" [(ngModel)]="nombreProducto" (keyup)="buscarProductos()">
+              <div class="list-group" *ngIf="listaProductosVisible==true">
+                <button class="list-group-item list-group-item-action " *ngFor="let producto of arrayProductosBusqueda" (click)="listaProductosVisible=false"
+                  (click)="agregarArrayProd(producto)">
+                  {{producto.nombreProd}}
+                </button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <label for="prods" *ngIf="arrayProductosSeleccionadas.length>0">Productos seleccionados</label>
+              </div>
+              <div class="col-xl-2 col-lg-2 col-md-2 col-sm- 4 col-4" id="prods" *ngFor="let producto of arrayProductosSeleccionadas">
+
+                <p class="tag">{{producto.nombreProd}}
+                  <span>
+                    <button class="btn btn-danger">Eliminar</button>
+                  </span>
+                </p>
+
+              </div>
+            </div>
+-->
+            <div class="form-group">
+              <label for="cantidad">Cantidad de descuento</label>
+
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">$</span>
+                </div>
+                <input type="number" [(ngModel)]="objetoPromocion.precioProm" name="precioProm" class="form-control" aria-label="Amount (to the nearest dollar)">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-12">
+         <div class="card">
+           <div class="card-body">
+             <label for="limites">Numero de usos limite</label>
+             <input type="number" [(ngModel)]="objetoPromocion.usosLimiteProm" name="usosLimiteProm" class="form-control">
+           </div>
+         </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+             <label for="f">Fechas</label>
+            
+                <input type="text"
+                       placeholder="Inicio - Fin"
+                       class="form-control"
+                       bsDaterangepicker
+                       [(ngModel)]="objetoPromocion.fechasProm" 
+                       >
+
+              
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-12">
+         <button class="btn btn-success" style="padding:10px; float:right;" (click)="guardarPromocion()">Guardar promocion</button>
+      </div>
+    </div>
+  </div>
+</div>

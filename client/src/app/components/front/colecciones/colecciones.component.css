@@ -1,0 +1,190 @@
+.titulo-coleccion {
+  font-weight: bold;
+  font-size: 130%;
+  color: #222222;
+}
+
+.img-col {
+  height: 370px;
+  width: 100%;
+}
+
+.filter-container {
+  width: 100%;
+  background: white;
+}
+
+.til-fil {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  color: black;
+  font-size: 120%;
+}
+
+.list-group-item {
+  background-color: white;
+  text-align: center;
+  color: black;
+  font-size: 105%;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.list-group-item:hover {
+  background-color: #666666;
+  color: white;
+}
+
+.producto{
+  transition: 0.3s;
+}
+
+.producto:hover{
+  -webkit-box-shadow: inset 0px 0px 12px -4px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: inset 0px 0px 12px -4px rgba(0, 0, 0, 0.75);
+  box-shadow: inset 0px 0px 12px -4px rgba(0, 0, 0, 0.75);
+}
+
+.producto{
+  margin-left: 5%;
+  width: 90%;
+  border: 1px solid #E1E1E1;
+  border-radius: 5px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.cont-prods{
+  width: 100%;
+  margin: 0 auto;
+}
+
+.nombreColeccion {
+  font-family: 'Roboto Condensed', sans-serif;
+  color: rgb(87, 87, 87);
+}
+
+.nombreProducto {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 105%;
+}
+
+.precio {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: bold;
+  font-size: 140%;
+}
+
+.rating-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-ver-prod {
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+  background-color: #222222;
+  color: white;
+  border: 1px solid white;
+  transition: 0.3s;
+}
+
+.btn-ver-prod:hover {
+  background-color: white;
+  border: 1px solid #222222;
+  color: #222222;
+}
+
+.btn-agregar-prod {
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+  background-color: darkgreen;
+  color: white;
+  transition: 0.3s;
+  border: 1px solid white;
+}
+
+.btn-agregar-prod:hover {
+  background-color: white;
+  border: 1px solid darkgreen;
+  color: darkgreen;
+}
+
+.modal-titulo{
+  width: 100%;
+  text-align: center;
+  font-size: 150%;
+  font-weight: bold;
+  color: #333333;
+}
+
+.modal-texto{
+  width: 100%;
+  text-align: center;
+}
+
+.modal-precio{
+  width: 100%;
+  text-align: center;
+  font-size: 190%;
+  font-weight: bold;
+  color: #408DE4;
+}
+
+.btn-cart-modal{
+  border: none;
+  outline: none;
+  background-color: #408DE4;
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  cursor: pointer;
+}
+
+.leftRs {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  width: 50px;
+  height: 50px;
+  box-shadow: none;
+  border:none;
+  border-radius: 5px;
+  left: 0;
+  background-color: rgba(0,0,0,0.3);
+  color: white;
+  outline: none;
+}
+
+.rightRs {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  border:none;
+  box-shadow: none;
+  right: 0;
+  background-color: rgba(0,0,0,0.3);
+  color: white;
+  outline: none;
+}

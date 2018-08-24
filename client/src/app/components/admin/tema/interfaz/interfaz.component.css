@@ -1,0 +1,54 @@
+.container-fluid{
+
+  background-color: #F4F6F8;
+ 
+}
+.button-col{
+  width: 100%;
+}
+.button-guardar{
+  float: right;
+}
+#hidden{
+  visibility: hidden;
+}
+.texto{
+  text-align: center;
+}
+
+.row-carousel{
+  border-radius: 5px;
+  transition: 0.3s;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.row-carousel:hover{
+  background-color: #F4F6F8;
+}
+
+.texto-2{
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+ 
+}
+
+#collapseCarousel-side-btn{
+  margin-top: 10px;
+}
+
+.btn-danger{
+  width: 100%;
+}
+
+.btn-success{
+  margin-top: 10px;
+}
+
+.btn-trash{
+  position: relative;
+  top:50%;
+  transform: translateY(-50%);
+}

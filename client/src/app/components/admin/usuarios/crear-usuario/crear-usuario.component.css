@@ -1,0 +1,11 @@
+.container-fluid{
+  background-color: #F4F6F8;
+  overflow-y: auto;
+}
+.titulos{
+  font-size: 125%;
+}
+
+.required{
+  outline: 1px solid red!important;
+}

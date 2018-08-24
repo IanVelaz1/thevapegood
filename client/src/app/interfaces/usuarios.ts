@@ -1,0 +1,24 @@
+export interface Usuario{
+  _id?:string,
+  nombreUser:string,
+  apellidoUser:string,
+  emailUser:string,
+  contraUser:string,
+  usernameUser:string,
+  generoUser:string,
+  telefonoUser:string,
+  direccionUser:{
+    estadoUser:string,
+    calleUser:string,
+    numeroCalle:string,
+    numeroInteriorCalle:string,
+    coloniaUser:string,
+    codigoPostalUser:string,
+    ciudadUser:string,
+    paisUser:string,
+  },
+  razonSocialUser?:string,
+  rfcUser?:string,
+  ventasUser?:any[],
+  preguntasUser?:any[]
+}

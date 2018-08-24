@@ -1,0 +1,28 @@
+.container-fluid{
+  height: 100vh;
+  background-color: #F4F6F8;
+}
+
+.row-1{
+  border-bottom: 1px solid #DFDFDF;
+}
+
+.row-2{
+  height: 60px;
+  transition: 0.2s;
+  border-bottom: 1px solid #DFDFDF;
+}
+
+.row-2:hover{
+  background-color: #F4F6F8;
+  cursor: pointer;
+}
+
+.texto{
+
+position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  
+
+}

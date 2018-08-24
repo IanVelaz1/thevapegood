@@ -1,0 +1,5 @@
+div.container-fluid{
+  height: 100vh;
+  background-color: #F4F6F8;
+  overflow-y: auto;
+}

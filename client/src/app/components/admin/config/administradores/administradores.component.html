@@ -1,0 +1,36 @@
+<app-navbars></app-navbars>
+<div class="container-fluid">
+ <div class="container">
+   <div class="row">
+     <div class="col-12">
+       <h2>Administradores</h2>
+       <a class="btn btn-success" routerLink="/admin/administradores/agregar" style="float: right;">Agregar administrador</a>
+     </div>
+   </div>
+   <br>
+   <div class="row">
+     <div class="col-12">
+       <div class="card">
+         <div class="card-body">
+           <div class="row" style="border-bottom:1px solid#DFDFDF;">
+             <div class="col-xl-8 col-lg-8 col-md-8 col-sm-6 col-6" style="text-align: center;">
+               <p style="font-weight: bold;">Nombre</p>
+             </div>
+             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6" style="text-align: center;">
+               <p style="font-weight: bold;">Email</p>
+            </div>
+           </div>
+           <div class="row rows" *ngFor="let admin of arrayAdmin" (click)="verAdmin(admin._id)">
+            <div class="col-xl-8 col-lg-8 col-md-8 col-sm-6 col-6 " style="text-align: center;">
+              <p class="texto">{{admin.nombre}}</p>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6 " style="text-align: center;">
+              <p class="texto">{{admin.email}}</p>
+           </div>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+</div>

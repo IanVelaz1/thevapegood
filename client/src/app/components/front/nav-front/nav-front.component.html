@@ -1,0 +1,194 @@
+<div class="container-body">
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav-sup">
+    <div class="container">
+      <div class="collapse navbar-collapse w-100" id="navbarNav">
+
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link nav-link-sup" href="#">
+              <i class="fab fa-twitter"></i>
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-sup" href="#">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-sup" href="#">
+              <i class="fab fa-pinterest-p"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-sup" href="#">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link nav-link-sup">
+              <i class="fab fa-google-plus-g"></i>
+            </a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto" id="container-cta">
+          <li class="nav-item" id="nav-drop" *ngIf="userLoggedIn==false">
+            <div class="dropdown">
+              <button class="dropbtn">
+                <i class="fas fa-user"></i> Cuenta
+                <i class="fas fa-angle-down"></i>
+              </button>
+              <div class="dropdown-content">
+                <a routerLink="/usuario/iniciar-sesion">
+                  <i class="fas fa-key"></i> Entrar</a>
+                <a routerLink="/usuario/crear">
+                  <i class="fas fa-envelope"></i> Registro</a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item" id="nav-drop" *ngIf="userLoggedIn==true">
+            <div class="dropdown">
+              <button class="dropbtn">
+                <i class="fas fa-user"></i> Cuenta
+                <i class="fas fa-angle-down"></i>
+              </button>
+              <div class="dropdown-content">
+                <a routerLink="/usuarios/perfil">
+                  <i class="fas fa-user-circle"></i> Perfil</a>
+                <a routerLink="" (click)="cerrarSesion()">
+                  <i class="fas fa-times-circle"></i> Cerrar sesión</a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container-fluid" id="cont-nav-inf">
+
+      <div class="container">
+
+          <nav class="navbar navbar-expand-lg w-100" id="nav-inf" style="width:100%;">
+      
+            <div class="w-100" id="navbarNav" style=" height:100%;">
+              <ul class="navbar-nav" style=" height:100%!important;">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6" style=" ">
+                  <img src="https://i.imgur.com/MajujZW.png" alt="Coding_Makers" class="img-fluid logo" width="45%" style="height: 100px" width="100px"
+                    border="0">
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6" id="grid-input" style="">
+                  <li class="nav-item" style=" height:100%">
+                    
+                    <div class="container-busqueda" style=" height:100%">
+                      <input type="text" class="input-busqueda" style=" height:100%" placeholder="buscar">
+                    </div>
+                  </li>
+                </div>
+              </ul>
+            </div>
+          </nav>
+        </div>
+        <br>
+  </div>
+
+  
+  <br>
+  <br>
+
+  <div class="container" id="cont-nav-prim">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav-2">
+      <a class="navbar-brand" routerLink="/" style="color: white">Inicio</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav w-100 mr-auto">
+          <li class="nav-item" *ngFor="let nav of elementosNav">
+              <a class="nav-link link-main" *ngIf="nav.tipo==1" routerLink="/pagina/{{nav.paginaPrin}}">{{nav.titulo}}
+                <span class="sr-only">(current)</span>
+              </a>
+            <a class="nav-link link-main" *ngIf="nav.tipo==2" routerLink="/colecciones/{{nav.coleccion}}">{{nav.titulo}}
+              <span class="sr-only">(current)</span>
+            </a>
+            <a class="nav-link link-main" *ngIf="nav.tipo==3" href="{{nav.enlace}}">{{nav.titulo}}
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+
+          <li class="nav-item dropdown" *ngFor="let navMega of elementosNavMega">
+            <a class="nav-link dropdown-toggle link-main" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              {{navMega.titulo}}
+            </a>
+            <div class="dropdown-menu mega-menu" aria-labelledby="navbarDropdown">
+              <div class="row">
+                <div class="col-md-3">
+                  <!--<img src="img/flower1.jpg" alt="flower" class="img-fluid">-->
+                  <h4 style="color: orangered;">{{navMega.titulo}}</h4>
+                </div>
+                <div class="col-md-3">
+                  <p>
+                    <strong class="sub-menu-heading">{{navMega.menu.tituloMenuPrin}}</strong>
+                  </p>
+                  <p>
+                    <a *ngFor="let link of navMega.menu.elementosMenu" routerLink="/colecciones/{{link.coleccion}}">{{link.titulo}}</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <div class="dropdown-cart" (mouseenter)="hoverCarrito=true;" (mouseleave)="hoverCarrito=false;">
+              <button class="dropbtn-cart" (click)="abrirCarrito()">
+                <i class="fas fa-shopping-bag"></i> Carrito
+                <span style="color: #408DE4">{{cantidadCarrito}}</span>
+              </button>
+              <div class="dropdown-content-cart">
+                <div class="row" *ngIf="arrayProductosCarrito.length==0">
+                  <div class="col-12" style="height: 100px;">
+                      <p style="font-size: 115%; text-align: center; text-align: center; position: relative; top: 50%; transform: translateY(-50%);"><i class="fas fa-cart-arrow-down"></i> Carrito vacio</p>
+                  </div>
+                </div>
+                 
+              </div>
+              <div class="dropdown-content-cart" [ngClass]="{'animated': hoverCarrito==true, 'bounceInUp':hoverCarrito==true}" *ngIf="arrayProductosCarrito.length>0">
+                <br>
+                <div class="row" style="min-height: 50px; width: 100%; max-width: 100%; margin-bottom: 10px;" *ngFor="let producto of arrayProductosCarrito">
+                  <div class="col-5">
+                     <img src="{{producto.imagenesProd[0].secure_url}}" class="img-fluid" alt="">
+                  </div>
+                  <div class="col-7" style=" border-bottom: 1px solid #E1E1E1;">
+                     <p class="cart-text">{{producto.nombreProd}}<br><span style="font-weight: bold;">{{producto.precioVentaProd | currency}}</span><br><span>x{{producto.cantidadCarrito}}</span></p>
+                     
+                  </div>
+                </div>
+                <br>
+                <div class="row" style="max-width: 100%; width: 100%;" >
+                  <div class="col-6">
+                   <p style="text-align: center; font-size: 110%; font-weight: bold; margin-left: 2px;">Subtotal:</p>               
+                  </div>
+                  <div class="col-6">
+                    <p style="text-align: center; font-size: 110%; font-weight: bold; margin-left: 2px;">{{totalCarrito|currency}}</p>
+                  </div>
+                </div>
+              
+                <div class="row" style="color: white; max-width: 100%; width: 100%;">
+                  <div class="col-12" style="text-align: center;">
+                    <button class="btn-carts">Ver carrito</button>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>

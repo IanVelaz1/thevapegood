@@ -1,0 +1,71 @@
+<app-navbars></app-navbars>
+<div class="container-fluid">
+ <div class="container">
+   <div class="row">
+     <div class="col-12">
+       <h2>Agregar administrador</h2>
+     </div>
+   </div>
+   <br>
+   <div class="row">
+     <div class="col-12">
+       <div class="card">
+         <div class="card-body">
+            <div class="form-group">
+               <label for="nombreUser">Nombre</label>
+               <input type="text" class="form-control" [(ngModel)]="objetoAdmin.nombre">
+            </div>
+            <div class="form-group">
+                <label for="nombreUser">Email</label>
+                <input type="email" class="form-control" [(ngModel)]="objetoAdmin.email">
+             </div>
+             <div class="form-group">
+                <label for="nombreUser">Contraseña</label>
+                <input type="password" class="form-control" [(ngModel)]="objetoAdmin.password">
+             </div>
+             <div class="row">
+               <div class="col-12">
+                  <h4>Permisos:</h4>
+               </div>
+             </div>
+             <div class="row">
+               <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                  <div class="custom-control custom-checkbox ml-sm-2">
+                      <input type="checkbox" class="custom-control-input" id="permisosProductos" [(ngModel)]="objetoAdmin.permisos.cambiosProductos">
+                      <label class="custom-control-label" for="permisosProductos">Este usuario puede ver o editar productos?</label>
+                    </div>
+               </div>
+               <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                  <div class="custom-control custom-checkbox ml-sm-2">
+                  <input type="checkbox" class="custom-control-input" id="permisosVentas" [(ngModel)]="objetoAdmin.permisos.cambiosVentas">
+                  <label class="custom-control-label" for="permisosVentas">Este usuario puede ver o administrar ventas?</label>
+                </div>
+                </div>
+             </div>
+             <br>
+             <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                   <div class="custom-control custom-checkbox ml-sm-2">
+                       <input type="checkbox" class="custom-control-input" id="permisosUsuarios" [(ngModel)]="objetoAdmin.permisos.cambiosAdmin">
+                       <label class="custom-control-label" for="permisosUsuarios">Este usuario puede crear o editar administradores?</label>
+                     </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                   <div class="custom-control custom-checkbox ml-sm-2">
+                   <input type="checkbox" class="custom-control-input" id="permisosClientes" [(ngModel)]="objetoAdmin.permisos.cambiosClientes">
+                   <label class="custom-control-label" for="permisosClientes">Este usuario puede ver o administrar clientes?</label>
+                 </div>
+                 </div>
+              </div>
+         </div>
+       </div>
+     </div>
+   </div>
+   <br>
+   <div class="row">
+     <div class="col-12">
+       <button class="btn btn-success" style="padding:10px; float: right;" (click)="guardarAdmin()" [ngClass]="{'disabled':puedeGuardar==false}">Guardar</button>
+     </div>
+   </div>
+ </div>
+</div>

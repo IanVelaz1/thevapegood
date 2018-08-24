@@ -1,0 +1,31 @@
+<app-navbars></app-navbars>
+<div class="body-container">
+  <div class="container-fluid">
+    <br>
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body" style="text-align: center;">
+             <h2>Paginas</h2>
+             <a class="btn btn-success" routerLink="/admin/paginas/agregar">Agregar Pagina</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row" *ngFor='let pagina of arrayPaginas'>
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="list-group">
+              <a routerLink="/admin/paginas/ver/{{pagina._id}}"  class="list-group-item list-group-item-action">
+                {{pagina.pagina.titulo}}
+              </a>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

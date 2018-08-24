@@ -1,0 +1,101 @@
+<app-nav-front></app-nav-front>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+       <h2>Mi cuenta</h2>
+    </div>
+    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+       <h2>Direcciones</h2>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+       <div class="row">
+         <div class="col-12">
+          <p style="text-align: center; font-weight: bold;" *ngIf="objUsuario.ventasUser.length==0">Aún no has realizado ninguna compra :)</p>
+         </div>
+       </div>
+    </div>
+    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+       <div class="row">
+        <div class="col-12">
+           <p style="text-align: center; font-weight: bold;" *ngIf="objUsuario.direccionesUser.length==0">Aún no has agregado ninguna direccion</p>
+        </div>
+      </div>
+      <div class="row row-direccion" *ngFor="let direccion of objUsuario.direccionesUser; let i=index">
+        <div class="col-12">
+           <p style="font-weight: bold;text-align: center;">{{direccion.nombre}} {{direccion.apellido}}</p>
+           <p class="texto">{{direccion.telefono}}</p>
+           <p class="texto">{{direccion.calleUser}}</p>
+           <p class="texto">{{direccion.numeroCalle}}</p>
+           <p class="texto">{{direccion.numeroInteriorCalle}}</p>
+           <p class="texto">{{direccion.coloniaUser}}</p>
+           <p class="texto">{{direccion.codigoPostalUser}}</p>
+           <p class="texto">{{direccion.ciudadUser}}</p>
+           <p class="texto">{{direccion.paisUser}}</p>
+           <p class="texto">{{direccion.razonSocial}}</p>
+           <p class="texto">{{direccion.rfc}}</p>
+        </div>
+        
+          <div class="col-6"><button class="btn btn-danger" style="width: 100%;">Eliminar</button></div>
+          <div class="col-6"><button class="btn btn-warning" style="width: 100%;" (click)="editarDireccion(direccion)">Editar</button></div>
+        
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-12">
+          <button class="btn btn-success" style="float: right;" (click)="agregarDireccion=true">Agregar direccion</button>
+        </div>
+      </div>
+      <div class="row" *ngIf="agregarDireccion==true;">
+        <div class="col-12">
+          <p style="color: red" *ngIf="requiredError==true">Los campos marcados con <span class="required">*</span> son requeridos</p>
+          <div class="form-group">
+            <label for="nombre">Nombre: <span class="required">*</span></label>
+            <input type="text" id="nombre" class="form-control" [(ngModel)]="objetoDireccion.nombre">
+            <label for="apellido">Apellido: <span class="required">*</span></label>
+            <input type="text" id="apellido" class="form-control" [(ngModel)]="objetoDireccion.apellido">
+            <label for="telefono">Teléfono: <span class="required">*</span></label>
+            <input type="text" id="telefono" class="form-control" [(ngModel)]="objetoDireccion.telefono">
+            <label for="calle">Calle: <span class="required">*</span></label>
+            <input type="text" id="calle" class="form-control" [(ngModel)]="objetoDireccion.calleUser">
+            <div class="row">
+              <div class="col-6"><label for="numero">Número: <span class="required">*</span></label>
+                <input type="text" id="numero" class="form-control" [(ngModel)]="objetoDireccion.numeroCalle"></div>
+              <div class="col-6"><label for="numeroInt">Número int:</label>
+                <input type="text" id="numeroInt" class="form-control" [(ngModel)]="objetoDireccion.numeroInteriorCalle"></div>
+            </div>
+            <label for="colonia">Colonia: <span class="required">*</span></label>
+              <input type="text" id="colonia" class="form-control" [(ngModel)]="objetoDireccion.coloniaUser">
+              <label for="codigoPostal">Código postal: <span class="required">*</span></label>
+              <input type="text" id="codigoPostal" class="form-control" [(ngModel)]="objetoDireccion.codigoPostalUser">
+              <div class="row">
+                <div class="col-6">
+                  <label for="estado">Estado: <span class="required">*</span></label>
+                  <select class="custom-select" id="estado" [(ngModel)]="objetoDireccion.estadoUser">
+                  <option *ngFor="let estado of estados" value="{{estado}}">{{estado}}</option>
+                </select></div>
+                <div class="col-6"><label for="ciudad">Ciudad: <span class="required">*</span></label>
+                  <input type="text" id="ciudad" class="form-control" [(ngModel)]="objetoDireccion.ciudadUser"></div>
+              </div>
+              
+              <label for="razonSocial">Razon social:</label>
+              <input type="text" id="razonSocial" class="form-control" [(ngModel)]="objetoDireccion.razonSocial">
+              <label for="rfc">Rfc:</label>
+              <input type="text" id="rfc" class="form-control" [(ngModel)]="objetoDireccion.rfc">
+              <br>
+              <div class="row">
+                <div class="col-6"><button class="btn btn-danger" (click)="agregarDireccion=false" style="width: 100%;">Cancelar</button></div>
+                <div class="col-6"><button class="btn btn-success" style="width: 100%;" (click)="agregarDirecciones()" *ngIf="editarDir==false">Guardar dirección</button>
+                  <button class="btn btn-success" style="width: 100%;" (click)="guardarCambiosDireccion()" *ngIf="editarDir==true">Guardar cambios</button>
+                </div>
+              </div>
+              
+          </div>
+        </div>
+      </div>
+    </div> 
+  </div>
+</div>

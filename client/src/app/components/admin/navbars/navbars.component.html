@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-lg sticky-top bg-light ">
+  <a class="navbar-brand" href="#">Admin (Basic)</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-bars" style="color: white;"></i>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+         <a class="nav-link" routerLink="/admin/inicio"><i class="fas fa-home iconos-side"></i> Inicio</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" routerLink="/admin/categorias"><i class="fas fa-money-bill-alt"></i> Ventas </a>
+       </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-people-carry"></i>
+              Productos
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" routerLink="/admin/productos" >Ver Productos</a>
+              <a routerLink="/admin/colecciones" class="dropdown-item">Colecciones</a>
+              <a routerLink="/admin/colecciones" class="dropdown-item">Inventario</a>
+              <a routerLink="/admin/colecciones" class="dropdown-item">Tarjetas de regalo</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link" routerLink="/admin/usuarios"><i class="fas fa-users"></i>
+              Clientes
+            </a>
+            
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/admin/categorias"><i class="fas fa-chart-bar"></i> Reportes </a>
+         </li>
+         <li class="nav-item">
+          <a class="nav-link" routerLink="/admin/descuentos"><i class="fas fa-percent"></i> Descuentos </a>
+       </li>
+       <li class="nav-item">
+        <a class="nav-link" routerLink="/admin/tema"><i class="fas fa-gift"></i> Tienda </a>
+     </li>
+     <li class="nav-item">
+      <a class="nav-link" routerLink="/admin/config"><i class="fas fa-cog"></i> Configuracion </a>
+   </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item ">     
+          <a style="cursor: pointer;" class="nav-link" (click)="cerrarSesion()">Cerrar sesion</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+

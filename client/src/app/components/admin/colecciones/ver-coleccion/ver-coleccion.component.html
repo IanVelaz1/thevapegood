@@ -1,0 +1,53 @@
+<app-navbars></app-navbars>
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-12">
+      <h2>Colecciones</h2>
+      <a routerLink="/admin/colecciones/agregar" style="float: right;" class="btn btn-success">Agregar Coleccion</a>
+    </div>
+  </div>
+  <br>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-12">
+                  <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1"><i class="fas fa-search"></i></span>
+                      </div>
+                      <input type="text" class="form-control" placeholder="Buscar Coleccion" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+              </div>
+            </div>
+            <br>
+            <div class="row" style="border-bottom: 1px solid #DFDFDF; padding-bottom: 10px;">
+              <div class="col-2" style="text-align: center;">
+                 Imagen
+              </div>
+              <div class="col-10" style="text-align: center;">
+                 Titulo
+              </div>
+            </div>
+            <br>
+            <div class="row row-col" *ngFor="let coleccion of arrayColecciones" (click)="verColeccion(coleccion._id)">
+                <div class="col-2" style="text-align: center;" *ngIf="!coleccion.imagenCol">
+                   <img src="https://www.gumtree.com/static/1/resources/assets/rwd/images/orphans/a37b37d99e7cef805f354d47.noimage_thumbnail.png" class="img-fluid" height="100%" alt="">
+                </div>
+                <div class="col-2" style="text-align: center;" *ngIf="coleccion.imagenCol">
+                  <img src="{{coleccion.imagenCol.secure_url}}" class="img-fluid" height="100%" alt="">
+               </div>
+                <div class="col-10" id="texto" style="text-align: center;">
+                   {{coleccion.nombreCol}}
+                </div>
+              </div>
+            <br>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

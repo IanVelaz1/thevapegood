@@ -1,0 +1,38 @@
+<app-navbars></app-navbars>
+<div class="container-fluid">
+  <div class="container">
+     <div class="row">
+       <div class="col-12">
+         <h2>Descuentos</h2>
+         <a class="btn btn-success" routerLink="/admin/descuentos/agregar" style="float: right">Crear descuento</a>
+       </div>
+     </div>
+     <br>
+     <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-search"></i></span>
+                    </div>
+                    <input type="text" placeholder="Buscar promocion" name="precioProm" class="form-control" >
+                  </div>
+               <div class="row" style="border-bottom: 1px solid #DFDFDF;">
+                 <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12" style="text-align: center;">
+                    <p>Nombre de descuento</p>
+                 </div>
+                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12" style="text-align: center;"><p>Cantidad</p></div>
+               </div>
+               <div class="row row-prod" *ngFor="let promocion of arrayPromociones" (click)="verPromocion(promocion._id)">
+                <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12" style="text-align: center;">
+                  <p class="text">{{promocion.nombreProm}}</p>
+               </div>
+               <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12" style="text-align: center;"><p class="text">{{promocion.precioProm}}</p></div>
+               </div>
+            </div>
+          </div>
+        </div>
+     </div>
+  </div>
+</div>

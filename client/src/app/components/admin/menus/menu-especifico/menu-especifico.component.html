@@ -1,0 +1,161 @@
+<app-navbars></app-navbars>
+<app-navbar></app-navbar>
+<div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="dialog-sizes-name1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 id="dialog-sizes-name1" class="modal-title pull-left">Agregar elemento</h4>
+        <button type="button" class="close pull-right" (click)="lgModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+           <label for="titulo">Titulo</label>
+           <input type="text" class="form-control" [(ngModel)]="objMenu.titulo" >
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+              <label for="selectOpt">Tipo</label>
+              <select id="selectOpt" class="form-control" name="tipo" [(ngModel)]="objMenu.tipo">
+                <option selected value="1">Pagina</option>
+                <option selected value="2">Colección</option>
+                <option value="3">Enlace Externo</option>
+                <option value="4">Menú</option>
+              </select>
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12" *ngIf="objMenu.tipo=='2'">
+               <label for="coleccion">Colección</label>
+               <input type="text" class="form-control" [(ngModel)]="nombreColeccion" (keyup)="buscarColecciones()">
+               <div class="list-container" *ngIf="listaColeccionesVisible==true">
+                <div class="list-group">
+                  <button class="list-group-item list-group-item-action " *ngFor="let coleccion of arrayColeccionesBusqueda" (click)="listaColeccionesVisible=false" (click)="objMenu.tituloColeccion=coleccion.nombreCol" (click)="objMenu.coleccion=coleccion._id" (click)="nombreColeccion=coleccion.nombreCol">
+                   {{coleccion.nombreCol}}
+                  </button>
+                </div>
+               </div>
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12" *ngIf="objMenu.tipo=='1'">
+              <label for="coleccion">Página</label>
+              <input type="text" class="form-control" [(ngModel)]="objMenu.tituloPagina">
+         </div>
+         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12" *ngIf="objMenu.tipo=='3'">
+            <label for="coleccion">Enlace</label>
+            <input type="text" class="form-control" [(ngModel)]="objMenu.enlace">
+       </div>
+       <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12" *ngIf="objMenu.tipo=='4'">
+        <label for="coleccion">Menú</label>
+               <input type="text" class="form-control" [(ngModel)]="nombreMenu" (keyup)="buscarMenu()">
+               <div class="list-container" *ngIf="listaMenusVisibles==true">
+                <div class="list-group">
+                  <button class="list-group-item list-group-item-action " *ngFor="let menu of arrayMenusBusqueda" (click)="listaMenusVisibles=false" (click)="objMenu.nombreMenu=menu.tituloMenuPrin" (click)="objMenu.menu=menu" (click)="nombreMenu=menu.tituloMenuPrin">
+                   {{menu.tituloMenuPrin}}
+                  </button>
+                </div>
+               </div>
+   </div>
+        </div>
+        <br>
+        <div class="row" *ngIf="objMenu.titulo.length>0">
+          <div class="col-12">
+            <button class="btn btn-success" (click)="crearElemento()" style="width: 100%;" (click)="lgModal.hide()">Agregar elemento</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="container-fluid">
+  <br>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2>Agregar Menú</h2>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <label for="titulo">Titulo</label>
+            <input type="text" class="form-control" [(ngModel)]="objetosMenu.tituloMenuPrin">
+            <br>
+            <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                    <label for="selectOpt">Tipo</label>
+                    <select id="selectOpt" class="form-control" name="tipoMenuPrin" [(ngModel)]="objetosMenu.tipoMenuPrin">
+                      <option selected value="1">Pagina</option>
+                      <option selected value="2">Colección</option>
+                      <option value="3">Enlace Externo</option>
+                    </select>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12" *ngIf="objetosMenu.tipoMenuPrin=='2'">
+                     <label for="coleccion">Colección</label>
+                     <input type="text" class="form-control" [(ngModel)]="nombreColeccionPrin" (keyup)="buscarColeccionesPrin()">
+                     <div class="list-container" *ngIf="listaColeccionesPrinVisible==true">
+                      <div class="list-group">
+                        <button class="list-group-item list-group-item-action " *ngFor="let coleccion of arrayColeccionesBusqueda" (click)="listaColeccionesPrinVisible=false" (click)="objetosMenu.tituloColeccionPrin=coleccion.nombreCol" (click)="objetosMenu.coleccionPrin=coleccion._id" (click)="nombreColeccionPrin=coleccion.nombreCol">
+                         {{coleccion.nombreCol}}
+                        </button>
+                      </div>
+                     </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12" *ngIf="objetosMenu.tipoMenuPrin=='1'">
+                    <label for="coleccion">Página</label>
+                    <input type="text" class="form-control" [(ngModel)]="objetosMenu.tituloPaginaPrin">
+               </div>
+               <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12" *ngIf="objetosMenu.tipoMenuPrin=='3'">
+                  <label for="coleccion">Enlace</label>
+                  <input type="text" class="form-control" [(ngModel)]="objetosMenu.enlacePrin">
+             </div>
+              </div>
+              <br>
+              <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="customCheck1" [(ngModel)]="objetosMenu.esSubMenu">
+                  <label class="custom-control-label" for="customCheck1">Es un sub-menu?</label>
+                </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-12">
+                <button class="btn btn-success" style="float:right;" (click)="lgModal.show()" (click)="resetObject()">Agregar elemento</button>
+                <label for="">Elementos de navegación</label>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-12">
+                <div [sortablejs]="objetosMenu.elementosMenu">
+                  <div class="row  row-elementos" *ngFor="let menu of objetosMenu.elementosMenu">
+                      <div class="col-xl-1 col-lg-1 col-1"><i class="fas fa-hand-rock textos"></i></div>
+                      <div class="col-xl-9 col-lg-9 col-9"><p class="textos ">{{menu.titulo}}</p></div>
+                      <div class="col-xl-1 col-lg-1 col-1"><button class="btn btn-warning" (click)="editar(menu.numerador)" (click)="lgModal.show()">Editar</button></div>
+                      <div class="col-xl-1 col-lg-1 col-1"><button class="btn btn-danger" (click)="eliminarElemento(menu.numerador)">Eliminar</button></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+<div class="row">
+  <div class="col-12">
+    <button class="btn btn-success" style="float:right; padding: 10px;" (click)="editarMenu()" >Guardar menu</button>
+  </div>
+</div>
+  </div>
+</div>

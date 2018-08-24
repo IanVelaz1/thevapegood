@@ -1,0 +1,41 @@
+<app-navbars></app-navbars>
+<div class="container-body">
+  <br>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-12" style="text-align: center">
+                <h2>
+                  Eventos
+                </h2>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <a routerLink="/admin/eventos/agregar" class="btn btn-success" style="float: right;">Agregar evento</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+     <div class="row">
+       <div class="col-12">
+          <div class="card" *ngFor="let evento of arrayEventos">
+            <div class="card-body">
+                <div class="list-group" >
+                    <a href="#" routerLink="/admin/evento/{{evento._id}}" class="list-group-item list-group-item-action">
+                     {{evento.titulo}}
+                    </a>
+                  </div>
+            </div>
+          </div>
+       </div>
+     </div>
+  </div>
+</div>

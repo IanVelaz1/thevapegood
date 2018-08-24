@@ -1,0 +1,270 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+.img-side {
+  min-height: 200px;
+  border-radius: 5px;
+}
+
+.mas-vendidos {
+  min-height: 200px;
+  overflow: hidden;
+  border: 1px solid #E1E1E1;
+  border-radius: 5px;
+}
+
+.titulo {
+  position: relative;
+  top: 40%;
+  transform: translateY(-50%);
+}
+
+.precio {
+  position: relative;
+  top: 35%;
+  transform: translateY(-50%);
+}
+
+#img-1 {
+  margin-bottom: 20px;
+}
+
+ngu-carousel {}
+
+.img-comments {
+  border-radius: 999px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  position: static;
+}
+
+.texto-container {
+  background-color: #408DE4;
+  height: 50%;
+  font-size: 102%;
+  font-weight: bold;
+  color: white;
+}
+
+.leftRs {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 10;
+  width: 50px;
+  height: 50px;
+  box-shadow: none;
+  border: none;
+  border-radius: 999px;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  outline: none;
+}
+
+.rightRs {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 10;
+  width: 50px;
+  height: 50px;
+  border-radius: 999px;
+  border: none;
+  box-shadow: none;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  outline: none;
+}
+
+.titulo-seccion {
+  width: 100%;
+  border-bottom: 4px solid #222222;
+  border-radius: 2px;
+}
+
+.container-seccion {
+  overflow: hidden;
+  border: 1px solid black;
+}
+
+.producto {
+  margin-left: 5%;
+  width: 90%;
+  border: 1px solid #E1E1E1;
+  border-radius: 5px;
+  margin-top: 15px;
+}
+
+.cont-prods {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.nombreColeccion {
+  font-family: 'Roboto Condensed', sans-serif;
+  color: rgb(87, 87, 87);
+}
+
+.nombreProducto {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 105%;
+}
+
+.precio {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: bold;
+  font-size: 140%;
+}
+
+.rating-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-imagenes-sec-2 {
+  height: 200px;
+}
+
+.img-container-sec-2 {
+  width: 100%;
+  height: 100%;
+}
+
+.btn-ver-prod {
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+  background-color: #222222;
+  color: white;
+  border: 1px solid white;
+  transition: 0.3s;
+}
+
+.btn-ver-prod:hover{
+  background-color: white;
+  border: 1px solid #222222;
+  color: #222222;
+}
+
+.btn-agregar-prod {
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+  background-color: darkgreen;
+  color: white;
+  transition: 0.3s;
+  border: 1px solid white;
+}
+
+.btn-agregar-prod:hover{
+  background-color: white;
+  border: 1px solid darkgreen;
+  color: darkgreen;
+}
+
+ngu-item{
+  border-radius: 5px;
+}
+
+.img-prod{
+  margin-top: 5px;
+
+  cursor: pointer;
+}
+
+.producto{
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.producto:hover{
+  -webkit-box-shadow: inset 0px 0px 12px -4px rgba(0,0,0,0.75);
+  -moz-box-shadow: inset 0px 0px 12px -4px rgba(0,0,0,0.75);
+  box-shadow: inset 0px 0px 12px -4px rgba(0,0,0,0.75);
+}
+
+.tile{
+  width: 100%;
+  height:400px;
+}
+
+.leftRs {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  width: 50px;
+  height: 50px;
+  box-shadow: none;
+  border:none;
+  border-radius: 5px;
+  left: 0;
+  background-color: rgba(0,0,0,0.3);
+  color: white;
+  outline: none;
+}
+
+.rightRs {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  border:none;
+  box-shadow: none;
+  right: 0;
+  background-color: rgba(0,0,0,0.3);
+  color: white;
+  outline: none;
+}
+
+.modal-titulo{
+  width: 100%;
+  text-align: center;
+  font-size: 150%;
+  font-weight: bold;
+  color: #333333;
+}
+
+.modal-texto{
+  width: 100%;
+  text-align: center;
+}
+
+.modal-precio{
+  width: 100%;
+  text-align: center;
+  font-size: 190%;
+  font-weight: bold;
+  color: #408DE4;
+}
+
+.btn-cart-modal{
+  border: none;
+  outline: none;
+  background-color: #408DE4;
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  cursor: pointer;
+}
+
+.carousel{
+  height: 400px;
+}

@@ -1,0 +1,73 @@
+
+.container-body{ 
+
+  
+  background-color: #F4F6F8;
+  
+}
+
+#hidden{
+  visibility: hidden;
+}
+
+#labelUpload{
+  color: dodgerblue;
+}
+#labelUpload:hover{
+  color: cornflowerblue;
+  text-decoration: underline;
+ cursor: pointer;
+}
+
+.labels{
+  color: #2F2B36;
+  font-weight: bold;
+}
+
+.label-2{
+  font-size: 105%;
+}
+
+#btn-guardar{
+  border: none;
+  background-color: #1C2B36!important;
+  padding: 15px;
+  width: 100%;
+}
+
+#btn-guardar:hover{
+  background-color: #24313A!important;
+}
+
+#btn-cancelar{
+  border: none;
+  background-color: #F44336!important;
+  padding: 15px;
+  width: 100%;
+}
+
+#btn-cancelar:hover{
+  background-color: #ED1607!important;
+}
+
+.list-container{
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.invisibleList{
+  display: none;
+}
+
+.visibleList{
+  display: initial;
+}
+
+.tags{
+  width: 100%;
+  background: #1C2B36;
+  color: white;
+  font-size: 110%;
+  border-radius: 5px;
+  margin-top: 10px;
+}

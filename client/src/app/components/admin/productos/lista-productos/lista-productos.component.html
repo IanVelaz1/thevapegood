@@ -1,0 +1,54 @@
+<app-navbars></app-navbars>
+<div class="container-body">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2>Productos</h2>
+          <a routerLink="/admin/productos/agregar" class="btn btn-success" style="float: right;">Agregar producto</a>
+        </div>
+      </div>
+        <div class="row">
+          <div class="col-12">
+            <br>
+            <div class="card">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-12">
+                      <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1"><i class="fas fa-search"></i></span>
+                          </div>
+                          <input type="text" class="form-control" placeholder="Buscar producto" aria-label="Username" aria-describedby="basic-addon1">
+                        </div>
+                  </div>
+                </div>
+                <br>
+                <div class="row" style="border-bottom: 1px solid #DFDFDF">
+                  <div class="col-12">
+                            <div class="row" >
+                              <div class="col-3">Imagen</div>
+                              <div class="col-3">Nombre Producto</div>
+                              <div class="col-3">Inventario</div>
+                              <div class="col-3">Precio</div>
+                            </div>
+                            <br>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12" style="padding-bottom: 10px;" *ngFor="let producto of arrayProductos">
+                     <div class="container-prod" (click)="verProducto(producto._id)">
+                       <div class="row">
+                          <div class="col-3"><img src="{{producto.imagenesProd[0].secure_url}}" class="img-fluid" class="img-prod" alt=""></div>
+                          <div class="col-3"><p class="texto">{{producto.nombreProd}}</p></div>
+                          <div class="col-3"><p class="texto">{{producto.existenciasProd}}</p></div>
+                          <div class="col-3"><p class="texto">{{producto.precioVentaProd|currency:'MXN'}}</p></div>
+                       </div>
+                     </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>

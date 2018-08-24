@@ -1,0 +1,72 @@
+<app-navbars></app-navbars>
+<div class="container-body">
+  <br>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-12" style="text-align: center;">
+                <h2>Agregar Evento</h2>
+                <button class="btn btn-danger" (click)="eliminarEvento()">Eliminar evento</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-12">
+                <label for="titulo">Titulo del evento:</label>
+                <input id="titulo" [(ngModel)]="objetoEvento.titulo" name="titulo" type="text" class="form-control">
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-12">
+                <label for="descripcion">Descripcion:</label>
+                <quill-editor [(ngModel)]="objetoEvento.descripcion" name="descripcion" id="descripcion" class="form-control" placeholder="descripcion">
+                </quill-editor>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-12">
+                <label for="imagenes">Imagenes:</label>
+                <file-drop id="imagenes" headertext="Arrastrar imagenes aqui" name="recfile" (onFileDrop)="dropped($event)" >
+                  <span></span>
+                </file-drop>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-4" *ngFor="let imagenes of arrayImagenesProducto">
+                <img src="{{imagenes.secure_url}}" width="100%" height="300px" alt="">
+                <button class="btn btn-danger" (click)="eliminarFotoCol(imagenes.public_id)" style="width: 100%;">Eliminar</button>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-12">
+                <label for="precio">Precio $:</label>
+                <input [(ngModel)]="objetoEvento.precio" name="precio" type="number" class="form-control">
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-12">
+                <button class="btn btn-success" style="width: 100%;" (click)="editarEvento()">Guardar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

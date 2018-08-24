@@ -1,0 +1,63 @@
+<app-nav-front></app-nav-front>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h2>Carrito</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="container">
+          <div class="row"  style="background: black; color: white">
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12" style="text-align: center;">
+               <p class="titulo">Imagen</p>
+             </div>
+              <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-5" style="text-align: center;">
+               <p class="titulo">Producto</p>
+             </div>
+              <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-12" style="text-align: center;">
+               <p class="titulo">Cantidad</p>
+             </div>
+              <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-12" style="text-align: center;">
+               <p class="titulo">Precio</p>
+             </div>
+            </div>
+            <div class="row"  style="height: 170px;" *ngFor="let producto of arrayProductosCarrito">
+                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 cols" style="text-align: center;">
+                 <img src="{{producto.imagenesProd[0].secure_url}}" class="img-fluid" alt="" style="max-height: 150px; margin-bottom: 10px; margin-top: 10px;">
+               </div>
+                <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-12 cols" style="text-align: center;">
+                 <p class="sub-titulo">{{producto.nombreProd}}</p>
+               </div>
+                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-12 cols" style="text-align: center;">
+                 <input type="number" class="form-control sub-titulo" [(ngModel)]="producto.cantidadCarrito" min="1" (change)="sumaTotal()">
+               </div>
+                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-12 cols" style="text-align: center;">
+                 <p class="sub-titulo">{{producto.precioVentaProd|multiCarrito:producto.cantidadCarrito | currency}}</p>
+               </div>
+              </div>
+              <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12" style="border: 1px solid #E1E1E1">
+                  <p class="texto sub-titulo" style="text-align: right; font-weight: bold;">Total:</p>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12" style="border: 1px solid #E1E1E1">
+                  <p class="total sub-titulo">{{total|currency}}</p>
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-8">
+
+                </div>
+                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-12">
+                   <button class="btn-check">Continuar comprando</button>
+                </div>
+                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-12">
+                    <button class="btn-check">Proceder al pago</button>
+                  </div>
+              </div>
+      </div>
+    </div>
+  </div>
+</div>

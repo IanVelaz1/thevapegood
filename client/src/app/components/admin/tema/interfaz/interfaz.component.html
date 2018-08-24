@@ -1,0 +1,524 @@
+<app-navbars></app-navbars>
+<app-navbar></app-navbar>
+<!--MODALS-->
+
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Agregar Imagen Carousel</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalCarousel.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="form-group">
+      <file-drop headertext="Arrastrar imagen aqui" name="recfile" (onFileDrop)="dropped($event)" (onFileOver)="fileOver($event)"
+        *ngIf="!objetoCarousel.imagenCarousel.secure_url">
+        <span></span>
+      </file-drop>
+      <br>
+      <div class="row">
+        <div class="col-12">
+          <label class="labels">Imagenes de carousel</label>
+        </div>
+      </div>
+      <div class="row" *ngIf="objetoCarousel.imagenCarousel.secure_url">
+        <div class="col-12">
+          <img src="{{objetoCarousel.imagenCarousel.secure_url}}" alt="" height="100%" width="100%">
+          <button class="btn btn-danger" style="width: 100%;" (click)="eliminarImagen(objetoCarousel.imagenCarousel.public_id)">Eliminar</button>
+        </div>
+      </div>
+      <br>
+      <br>
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <label for="textoImagen">Texto imagen:</label>
+            <input type="text" class="form-control" [(ngModel)]="objetoCarousel.texto">
+            <label for="textoImagen">Texto botón:</label>
+            <input type="text" class="form-control" [(ngModel)]="objetoCarousel.textoBoton">
+            <label for="urlImagen">Url imagen:</label>
+            <input type="text" class="form-control" [(ngModel)]="objetoCarousel.urlExterno">
+          </div>
+        </div>
+      </div>
+      <br>
+
+      <div class="row">
+        <div class="col-12">
+          <button class="btn btn-success button-guardar" (click)="agregarImagenCarousel()" *ngIf="objetoCarouselEditable==false" (click)="modalCarousel.hide()">Guardar</button>
+          <button class="btn btn-success button-guardar" (click)="modalCarousel.hide()" *ngIf="objetoCarouselEditable==true" (click)="objetoCarouselEditable=false">Guardar cambios</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #template2>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Imagen izquierda</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalSeccionIzquierda.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="form-group">
+      <file-drop headertext="Arrastrar imagen aqui" name="recfile" (onFileDrop)="droppedImagenesIz($event)" (onFileOver)="fileOver($event)"
+        *ngIf="!imagenIzquierda.imagen.secure_url">
+        <span></span>
+      </file-drop>
+      <br>
+      <div class="row">
+        <div class="col-12">
+          <label class="labels">Imagen</label>
+        </div>
+      </div>
+      <div class="row" *ngIf="imagenIzquierda.imagen.secure_url">
+        <div class="col-12">
+          <img src="{{imagenIzquierda.imagen.secure_url}}" alt="" height="100%" width="100%">
+          <button class="btn btn-danger" style="width: 100%;" (click)="eliminarImagen(imagenIzquierda.imagen.public_id)">Eliminar</button>
+        </div>
+      </div>
+      <br>
+      <br>
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <label for="urlImagen">Url imagen:</label>
+            <input type="text" class="form-control" [(ngModel)]="imagenIzquierda.url">
+          </div>
+        </div>
+      </div>
+      <br>
+
+      <div class="row">
+        <div class="col-12">
+          <button class="btn btn-success button-guardar" (click)="agregarImagenIzquierda()" *ngIf="imagenIzquierdaEditable==false"
+            (click)="modalSeccionIzquierda.hide()">Guardar</button>
+          <button class="btn btn-success button-guardar" (click)="modalSeccionIzquierda.hide()" *ngIf="imagenIzquierdaEditable==true">Guardar cambios</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #template3>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Imagen widget-2</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalWidget2.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="form-group">
+      <file-drop headertext="Arrastrar imagen" name="recfile" (onFileDrop)="droppedImageneswidget2($event)" (onFileOver)="fileOver($event)"
+        *ngIf="!imagenIzquierda.imagen.secure_url">
+        <span></span>
+      </file-drop>
+      <br>
+      <div class="row">
+        <div class="col-12">
+          <label class="labels">Imagen</label>
+        </div>
+      </div>
+      <div class="row" *ngIf="objetoWidget2.imagen.secure_url">
+        <div class="col-12">
+          <img src="{{objetoWidget2.imagen.secure_url}}" alt="" height="100%" width="100%">
+          <button class="btn btn-danger" style="width: 100%;" (click)="eliminarImagen(objetoWidget2.imagen.public_id)">Eliminar</button>
+        </div>
+      </div>
+      <br>
+      <br>
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <label for="urlImagen">Texto</label>
+            <input type="text" class="form-control" [(ngModel)]="objetoWidget2.texto">
+          </div>
+        </div>
+      </div>
+      <br>
+
+      <div class="row">
+        <div class="col-12">
+          <button class="btn btn-success button-guardar" (click)="copiarWidget2()" *ngIf="imagenWidget2Editable==false" (click)="modalWidget2.hide()">Guardar</button>
+          <button class="btn btn-success button-guardar" (click)="modalWidget2.hide()" *ngIf="imagenWidget2Editable==true">Guardar cambios</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<!--MODALS-->
+
+<div class="container-fluid">
+  <br>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2>Interfaz</h2>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <button class="btn btn-warning button-col" type="button" data-toggle="collapse" data-target="#collapseMenuSuperior" aria-expanded="false"
+              aria-controls="collapseMenuSuperior">Menu superior</button>
+            <div class="collapse" id="collapseMenuSuperior">
+              <br>
+              <div class="row">
+                <div class="col-12">
+                  <label for="menuSupTag">Seleccionar Menu:</label>
+                  <select class="custom-select" [(ngModel)]="objetoMenuSuperior.idMenuSuperior">
+                    <option *ngFor="let menu of arrayMenusP" value="{{menu._id}}">{{menu.tituloMenuPrin}}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <button class="btn btn-success" style="float: right" (click)="guardarInterfaz()" *ngIf="objetoInterfaz.isEditable==false">Guardar</button>
+                <button class="btn btn-success" style="float: right" (click)="editarInterfaz()" *ngIf="objetoInterfaz.isEditable==true">Guardar cambios</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <button class="btn btn-warning button-col" type="button" data-toggle="collapse" data-target="#collapseCarousel" aria-expanded="false"
+              aria-controls="collapseCarousel">Carousel</button>
+            <div class="collapse" id="collapseCarousel">
+              <div class="card card-body">
+                <div class="row">
+                  <div class="col-12">
+                    <button class="btn btn-success button-guardar" (click)="agregarElementoCarousel(template)">Agregar elemento de carousel</button>
+                  </div>
+                </div>
+                <br>
+                <div class="row" *ngIf="arrayObjetosCarousel.length>0">
+                  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+                    <p class="texto">Imagen</p>
+                  </div>
+                  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+                    <p class="texto">Texto</p>
+                  </div>
+                  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+                    <p class="texto">Texto boton</p>
+                  </div>
+                  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+                    <p class="texto"></p>
+                  </div>
+                </div>
+                <div class="row row-carousel" *ngFor="let carousel of arrayObjetosCarousel" (click)="verObjetoCarousel(carousel.imagenCarousel.public_id,template)">
+                  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+                    <img src="{{carousel.imagenCarousel.secure_url}}" class="img-fluid" alt="">
+                  </div>
+                  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+                    <p class="texto-2">{{carousel.texto}}</p>
+                  </div>
+                  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+                    <p class="texto-2">{{carousel.textoBoton}}</p>
+                  </div>
+                  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+                    <p class="texto-2">
+                      <button class="btn btn-danger " (click)="eliminarObjetoCarousel(carousel.imagenCarousel.public_id)">Eliminar</button>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button class="btn btn-warning button-col" type="button" data-toggle="collapse" data-target="#collapseCarousel-side" aria-expanded="false"
+              aria-controls="collapseCarousel-side" id="collapseCarousel-side-btn">Imagenes carousel derecha</button>
+
+            <div class="collapse" id="collapseCarousel-side">
+              <br>
+              <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                  <label for="imagen-side-der-1">Imagen 1:</label>
+                  <file-drop headertext="Arrastrar imagen aqui" name="recfile" (onFileDrop)="droppedImgDer1($event)" (onFileOver)="fileOver($event)"
+                    *ngIf="!imagenesDerechaSuperior.imagenSuperior.secure_url">
+                    <span></span>
+                  </file-drop>
+                  <img src="{{imagenesDerechaSuperior.imagenSuperior.secure_url}}" class="img-fluid" alt="">
+                  <button class="btn btn-danger" (click)="imagenesDerechaSuperior.imagenSuperior={}" *ngIf="imagenesDerechaSuperior.imagenSuperior.secure_url">Eliminar</button>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                  <label for="imagen-side-der-2">Imagen 2:</label>
+                  <file-drop headertext="Arrastrar imagen aqui" name="recfile" (onFileDrop)="droppedImgDer2($event)" (onFileOver)="fileOver($event)"
+                    *ngIf="!imagenesDerechaSuperior.imagenInferior.secure_url">
+                    <span></span>
+
+                  </file-drop>
+                  <img src="{{imagenesDerechaSuperior.imagenInferior.secure_url}}" class="img-fluid" alt="">
+                  <button class="btn btn-danger " (click)="imagenesDerechaSuperior.imagenInferior={}" *ngIf="imagenesDerechaSuperior.imagenInferior.secure_url">Eliminar</button>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12" *ngIf="imagenesDerechaSuperior.imagenSuperior.secure_url">
+                  <label for="urlImagenSideDer1">Url imagen 1</label>
+                  <input type="text" [(ngModel)]="imagenesDerechaSuperior.imagenSuperior.urlExterno" class="form-control">
+                </div>
+                <div *ngIf="imagenesDerechaSuperior.imagenInferior.secure_url" class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                  <label for="urlImagenSideDer2">Url imagen 2</label>
+                  <input type="text" [(ngModel)]="imagenesDerechaSuperior.imagenInferior.urlExterno" class="form-control">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <button class="btn btn-success" style="float: right" (click)="guardarInterfaz()" *ngIf="objetoInterfaz.isEditable==false">Guardar</button>
+                <button class="btn btn-success" style="float: right" (click)="editarInterfaz()" *ngIf="objetoInterfaz.isEditable==true">Guardar cambios</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <button class="btn btn-warning button-col" type="button" data-toggle="collapse" data-target="#imagenes-izquierda" aria-expanded="false"
+              aria-controls="imagenes-izquierda" id="collapseCarousel-side-btn">Imagenes seccion izquierda</button>
+            <div class="collapse" id="imagenes-izquierda">
+              <div class="row">
+                <div class="col-12">
+                  <button class="btn btn-success" (click)="agregarElementoIzquierda(template2)" style="float: right;" *ngIf="imagenesIzquierda.length<=4">Agregar Imagen</button>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">
+                  <p class="texto">Imagen</p>
+                </div>
+                <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-10">
+                  <p class="texto">Url</p>
+                </div>
+              </div>
+              <br>
+              <div class="row row-carousel" *ngFor="let objetoIzquierda of imagenesIzquierda" (click)="verImagenIzquierda(objetoIzquierda.imagen.public_id,template2)">
+                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">
+                  <img src="{{objetoIzquierda.imagen.secure_url}}" class="img-fluid" alt="">
+                </div>
+                <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-8">
+                  <p class="texto texto-2">{{objetoIzquierda.url}}</p>
+                </div>
+                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">
+                  <button class="btn btn-danger btn-trash" (click)="eliminarObjetoIzquierda(objetoIzquierda.imagen.public_id)">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <button class="btn btn-success" style="float: right" (click)="guardarInterfaz()" *ngIf="objetoInterfaz.isEditable==false">Guardar</button>
+                <button class="btn btn-success" style="float: right" (click)="editarInterfaz()" *ngIf="objetoInterfaz.isEditable==true">Guardar cambios</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <button class="btn btn-warning button-col" type="button" data-toggle="collapse" data-target="#widget-1" aria-expanded="false"
+              aria-controls="widget-1" id="collapseWidget-side-btn">Widget-izquierda 1</button>
+            <div class="collapse" id="widget-1">
+              <br>
+              <label for="coleccionWidget1">Coleccion</label>
+              <select class="custom-select" [(ngModel)]="objetoWidgetIzquierda1.idColeccion">
+                <option *ngFor="let coleccion of arrayColecciones" value="{{coleccion._id}}">{{coleccion.nombreCol}}</option>
+              </select>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <button class="btn btn-success" style="float: right" (click)="guardarInterfaz()" *ngIf="objetoInterfaz.isEditable==false">Guardar</button>
+                <button class="btn btn-success" style="float: right" (click)="editarInterfaz()" *ngIf="objetoInterfaz.isEditable==true">Guardar cambios</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <button class="btn btn-warning button-col" type="button" data-toggle="collapse" data-target="#widget-2" aria-expanded="false"
+              aria-controls="widget-2" id="collapseWidget-side-btn">Widget-izquierda 2</button>
+            <div class="collapse" id="widget-2">
+              <br>
+              <div class="row">
+                <div class="col-12">
+                  <button class="btn btn-success" style="float: right;" (click)="agregarWidget2(template3)">Agregar elemento de widget</button>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">
+                  <p class="texto">Imagen</p>
+                </div>
+                <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-10">
+                  <p class="texto">Texto</p>
+                </div>
+              </div>
+              <div class="row row-carousel" *ngFor="let objeto of arrayObjetosWidget2" (click)="verObjetoWidget2(objeto.imagen.public_id,template3)">
+                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">
+                  <img src="{{objeto.imagen.secure_url}}" class="img-fluid" alt="">
+                </div>
+                <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-8">
+                  <p class="texto-2">{{objeto.texto}}</p>
+                </div>
+                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">
+                  <p class="texto-2">
+                    <button class="btn btn-danger" (click)="eliminarObjetoWidget2()">
+                      <i class="fas fa-trash-alt"></i>
+                    </button>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <button class="btn btn-success" style="float: right" (click)="guardarInterfaz()" *ngIf="objetoInterfaz.isEditable==false">Guardar</button>
+                <button class="btn btn-success" style="float: right" (click)="editarInterfaz()" *ngIf="objetoInterfaz.isEditable==true">Guardar cambios</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <button class="btn btn-warning button-col" type="button" data-toggle="collapse" data-target="#coleccionSeccion1" aria-expanded="false"
+              aria-controls="coleccionSeccion1" id="collapseWidget-side-btn">Colecciones secciones productos</button>
+            <div class="collapse" id="coleccionSeccion1">
+              <br>
+              <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                  <label for="coleccion1">Coleccion seccion 1</label>
+                  <select class="custom-select" [(ngModel)]="coleccionesSeccionesProd.idColeccion1">
+                    <option *ngFor="let coleccion of arrayColecciones" value="{{coleccion._id}}">{{coleccion.nombreCol}}</option>
+                  </select>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                  <label for="coleccion1">Coleccion seccion 2</label>
+                  <select class="custom-select" [(ngModel)]="coleccionesSeccionesProd.idColeccion2">
+                    <option *ngFor="let coleccion of arrayColecciones" value="{{coleccion._id}}">{{coleccion.nombreCol}}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <button class="btn btn-success" style="float: right" (click)="guardarInterfaz()" *ngIf="objetoInterfaz.isEditable==false">Guardar</button>
+                <button class="btn btn-success" style="float: right" (click)="editarInterfaz()" *ngIf="objetoInterfaz.isEditable==true">Guardar cambios</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <button class="btn btn-warning button-col" type="button" data-toggle="collapse" data-target="#widgetDerecha" aria-expanded="false"
+              aria-controls="widgetDerecha" id="collapseWidget-side-btn">Imagenes widget-derecha</button>
+            <div class="collapse" id="widgetDerecha">
+              <br>
+              <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                  <div class="row">
+                    <div class="col-12">
+                        <label for="image1url">Url Imagen 1</label>
+                        <input type="text" class="form-control" [(ngModel)]="imagenesWidgetDerecha.imagen1.url">
+                    </div>
+                  </div>
+                 <div class="row">
+                   <div class="col-12">
+                      <label for="image1link">Link externo 1</label>
+                      <input type="text" class="form-control" [(ngModel)]="imagenesWidgetDerecha.imagen1.link">
+                   </div>
+                 </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                    <div class="row">
+                        <div class="col-12">
+                            <label for="image2url">Url Imagen 2</label>
+                            <input type="text" class="form-control" [(ngModel)]="imagenesWidgetDerecha.imagen2.url">
+                        </div>
+                      </div>
+                     <div class="row">
+                       <div class="col-12">
+                          <label for="image2link">Link externo 2</label>
+                          <input type="text" class="form-control" [(ngModel)]="imagenesWidgetDerecha.imagen2.link">
+                       </div>
+                     </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <label for="image3url">Url Imagen 3</label>
+                  <input type="text" class="form-control" [(ngModel)]="imagenesWidgetDerecha.imagen3.url">
+                  <label for="image3link">Link externo 3</label>
+                  <input type="text" class="form-control" [(ngModel)]="imagenesWidgetDerecha.imagen3.link">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                  <button class="btn btn-success" style="float: right" (click)="guardarInterfaz()" *ngIf="objetoInterfaz.isEditable==false">Guardar</button>
+                  <button class="btn btn-success" style="float: right" (click)="editarInterfaz()" *ngIf="objetoInterfaz.isEditable==true">Guardar cambios</button>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+              <button class="btn btn-warning button-col" type="button" data-toggle="collapse" data-target="#menuFooter" aria-expanded="false"
+              aria-controls="menuFooter" id="collapseWidget-side-btn">Menu footer</button>
+              <div class="collapse" id="menuFooter">
+                  <br>
+                  <div class="row">
+                    <div class="col-12">
+                      <label for="menuSupTag">Seleccionar Menu:</label>
+                      <select class="custom-select" [(ngModel)]="objetoMenuFooter.idMenu">
+                        <option *ngFor="let menu of arrayMenusP" value="{{menu._id}}">{{menu.tituloMenuPrin}}</option>
+                      </select>
+                    </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-12">
+                    <button class="btn btn-success" style="float: right" (click)="guardarInterfaz()" *ngIf="objetoInterfaz.isEditable==false">Guardar</button>
+                    <button class="btn btn-success" style="float: right" (click)="editarInterfaz()" *ngIf="objetoInterfaz.isEditable==true">Guardar cambios</button>
+                  </div>
+                </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+</div>

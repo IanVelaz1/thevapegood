@@ -1,0 +1,35 @@
+.w3-sidebar{
+  background-color: 
+  #1c2b36;
+}
+.w3-bar-item{
+  color:white;
+}
+.w3-bar-item:hover{
+  background-color: #209e91!important;
+  color: white!important;
+  text-decoration: none;
+}
+.navbar{
+  background-color: #204966!important;
+  color: white;
+}
+.w3-dropdown-click{
+  background-color: #1c2b36!important;
+}
+
+#demoAcc,#interfazOpt{
+  background-color: #263b49!important;
+}
+
+.w3-button{
+  color: white;
+  outline: none;
+}
+
+
+#openBtn{
+  width: 100%;
+  color: white;
+  background: #1c2b36;
+}

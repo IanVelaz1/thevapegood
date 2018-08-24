@@ -1,0 +1,25 @@
+.container{
+  border: 1px solid black;
+  width: 100%;
+}
+.titulo-seccion{
+  width: 100%;
+  border-bottom: 4px solid #408DE4;
+}
+.container-seccion{
+  overflow: hidden;
+  border: 1px solid black;
+}
+
+.producto{
+  margin-left: 5%;
+  width: 90%;
+  height: 340px;
+  border: 1px solid #E1E1E1;
+  border-radius: 5px;
+}
+
+.col-4{
+  border:1px solid black;
+  height: 100px;
+}

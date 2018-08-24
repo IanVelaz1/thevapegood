@@ -1,0 +1,10 @@
+.container-body{
+  overflow-y: auto;
+  background-color: #f0f3f4;
+  margin-left: 12%;
+  height: 100vh;
+}
+
+.card{
+  margin-bottom: 10px;
+}

@@ -1,0 +1,35 @@
+.container{
+height: 100vh;
+}
+
+.titulo{
+  text-align: left;
+  font-size: 150%;
+  font-weight: bold;
+}
+
+label{
+  margin-top: 10px;
+}
+
+app-footer{
+width: 100%;
+}
+
+.boton-registro{
+ border: none;
+ padding-top: 10px;
+ padding-bottom: 10px;
+ padding-left: 20px;
+ padding-right: 20px;
+ background-color: #408DE4;
+ color: white;
+ font-size: 115%;
+ cursor: pointer;
+ font-weight: bold;
+ transition: 0.3s;
+}
+
+.boton-registro:hover{
+  background-color: rgb(99, 161, 233);
+}

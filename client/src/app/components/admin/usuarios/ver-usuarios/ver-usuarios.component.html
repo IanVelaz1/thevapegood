@@ -1,0 +1,57 @@
+<app-navbars></app-navbars>
+<div class="container-fluid">
+
+  <div class="container">
+      <div class="row">
+          <div class="col-12">
+            <h2>Clientes</h2>
+            <button class="btn btn-success" style="float: right;" (click)="agregarUsuario()">Agregar usuario</button>
+          </div>
+        </div>
+        <br>
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">
+                  <i class="fas fa-search"></i>
+                </span>
+              </div>
+              <input type="text" class="form-control" placeholder="Buscar cliente" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="row" style="border-bottom: 1px solid #DFDFDF;">
+                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-12">
+                    <p class="tit">Index</p>
+                  </div>
+                  <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
+                      <p class="tit">Usuario</p>
+                    </div>
+                    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-12">
+                        <p class="tit">Pedidos</p>
+                      </div>
+            </div>
+            <br>
+            <div *ngFor="let usuario of arrayUsuarios; let i=index" class="row" id="fila" (click)="verUsuario(usuario._id)">
+              <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-12">
+                <p class="texto">{{i}}</p>
+              </div>
+              <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
+                <p class="texto">{{usuario.nombreUser}}</p>
+                <div class="row">
+                    <div class="col-12">
+                      {{usuario.emailUser}}
+                    </div>
+                  </div>
+              </div>
+              <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-12">
+                <p class="texto">{{usuario.ventasUser.length}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

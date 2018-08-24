@@ -1,0 +1,44 @@
+<app-nav-front></app-nav-front>
+<div class="container">
+  <br>
+  <div class="row">
+     <div class="col-12">
+       <p class="titulo">Crear Cuenta</p>
+     </div>
+  </div>
+  <div class="row">
+    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+      <div class="form-group">
+         <label for="nombreUsuario">Nombre</label> 
+         <input type="text" class="form-control" [(ngModel)]="objetoUsuario.nombreUser"
+         #nombreUsuario="ngModel"
+         minlength="3"
+         >
+         <div class="alert alert-danger" *ngIf="nombreRequerido"
+         >Minimo 3 caracteres</div>
+         
+         <label for="nombreUsuario">Apellido</label> 
+         <input type="text" class="form-control" [(ngModel)]="objetoUsuario.apellidoUser">
+         <label for="nombreUsuario">Email</label> 
+         <input type="email" class="form-control" [(ngModel)]="objetoUsuario.emailUser">
+         <div class="alert alert-danger" *ngIf="emailRequerido"
+         >Email requerido</div>
+         <div class="alert alert-danger" *ngIf="emailValido"
+         >Email valido requerido</div>
+         <label for="nombreUsuario">Contraseña</label> 
+         <input type="password" class="form-control" [(ngModel)]="objetoUsuario.contraUser">
+         <div class="alert alert-danger" *ngIf="contraRequerida"
+         >Minimo 4 caracteres</div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="row" style="margin-bottom: 20px;">
+    <div class="col-12">
+       <button class="boton-registro" (click)="guardarUsuario()">Crear</button>
+    </div>
+  </div>
+</div>
+
+  <app-footer class="sticky-bottom"></app-footer>
+

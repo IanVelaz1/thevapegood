@@ -1,0 +1,17 @@
+.container-body{
+  background-color: #F4F6F8;
+  height: 100vh;
+}
+
+.texto{
+  font-size: 120%;
+}
+
+.cards{
+  cursor: pointer;
+  transition: 0.3s;
+}
+.cards:hover, .sub-texto:hover{
+  background-color: #1C2B36;
+  color: white;
+}
