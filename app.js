@@ -19,7 +19,7 @@ cloudinary.config({
   api_secret:"NtG3mTQPSxLETSkzpavMAdWuxuM"
 });
 
-const port=process.env.PORT || 8000;
+const port=process.env.PORT || 80;
 
 mongoose.connect(config.db);
 
