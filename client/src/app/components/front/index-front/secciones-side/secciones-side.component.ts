@@ -108,7 +108,7 @@ export class SeccionesSideComponent implements OnInit {
   recuperarProductosWidget2(id){
     this.serviceProductos.recuperarProductoEspecifico(id).subscribe(productos=>{
       this.objProductos=productos;
-      this.arrayProductos1=this.objProductos.productos;
+      this.arrayProductos1.push(this.objProductos.producto);
 
     });
   }

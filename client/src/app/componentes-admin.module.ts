@@ -47,6 +47,7 @@ import {AgregarMenuComponent} from './components/admin/menus/agregar-menu/agrega
 import {MenuEspecificoComponent} from './components/admin/menus/menu-especifico/menu-especifico.component';
 import {InterfazComponent} from './components/admin/tema/interfaz/interfaz.component';
 import {redirectProducto} from './components/admin/productos/ver-producto/redirectColeccion';
+import {CrearAdminComponent} from './components/admin/login/crear-admin/crear-admin.component';
 ///////////////////admin-components//////////////////
 
 
@@ -100,7 +101,8 @@ export const routesComponents=[
  AgregarMenuComponent,
  MenuEspecificoComponent,
  InterfazComponent,
- redirectProducto
+ redirectProducto,
+ CrearAdminComponent
 ];
 
 //////guard-admin/////////////
@@ -146,7 +148,8 @@ const appRoutes:Routes=[
  {path:'admin/administradores/:id',component:VerAdministradorComponent,canActivate:[guardAdmin]},
  {path:'admin/politicas',component:PoliticasComponent,canActivate:[guardAdmin]},
  {path:'admin/tema',component:TemaComponent,canActivate:[guardAdmin]},
- {path:'admin/tema/index',component:InterfazComponent,canActivate:[guardAdmin]}
+ {path:'admin/tema/index',component:InterfazComponent,canActivate:[guardAdmin]},
+ {path:'admin/crear-admin',component:CrearAdminComponent}
  
  /////////////rutas-admin/////////////
 ];

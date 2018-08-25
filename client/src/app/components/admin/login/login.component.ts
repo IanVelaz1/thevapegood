@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
   constructor(private adminLogin:AdminLoginService,private router:Router) { }
 
   ngOnInit() {
+    this.recuperarAdministradores();
   }
 
   iniciarSesion(){
@@ -41,6 +42,18 @@ export class LoginComponent implements OnInit {
          this.router.navigate(['/admin/inicio']);
          this.success=true;
        }
+    });
+  }
+
+  objAdministradores;
+  arrayAdmins:Administrador[]=[];
+  recuperarAdministradores(){
+    this.adminLogin.recuperarAdministradores().subscribe(admin=>{
+      this.objAdministradores=admin;
+      this.arrayAdmins=this.objAdministradores.administradores;
+      if(this.arrayAdmins.length==0){
+        this.router.navigate(['/admin/crear-admin']);
+      }
     });
   }
 

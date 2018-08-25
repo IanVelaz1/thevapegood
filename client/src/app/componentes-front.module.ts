@@ -16,6 +16,8 @@ import {IniciarSesionComponent} from './components/front/usuarios/iniciar-sesion
 import {CarritoComponent} from './components/front/carrito/carrito.component';
 import {reditectCarrito} from './components/front/carrito/redirectCarrito';
 import {redirectCarritoCol} from './components/front/colecciones/redirectCarrito'
+import {redirectCarritoEliminar} from './components/front/carrito/redirectCarritoEliminar';
+import {redirectCarritoProducto} from './components/front/producto-especifico/redirectCarritoProducto';
 
 import {PerfilComponent} from './components/front/usuarios/perfil/perfil.component';
 
@@ -39,7 +41,9 @@ export const routesFrontComponents=[
  CarritoComponent,
  reditectCarrito,
  PerfilComponent,
- redirectCarritoCol
+ redirectCarritoCol,
+redirectCarritoEliminar,
+redirectCarritoProducto
 ];
 
 const appRoutesFront:Routes=[
@@ -52,8 +56,9 @@ const appRoutesFront:Routes=[
    {path:'colecciones/producto/:idProducto',component:ProductoEspecificoComponent},
    {path:'carrito',component:CarritoComponent},
    {path:'redirect/carrito',component:reditectCarrito},
-   {path:'redirect/coleccion/:id',component:redirectCarritoCol}
-   
+   {path:'redirect/coleccion/:id',component:redirectCarritoCol},
+   {path:'redirect/carrito/eliminar',component:redirectCarritoEliminar},
+   {path:'redirect/carrito/producto/:id',component:redirectCarritoProducto}
 ];
 
 export const RoutingFront:ModuleWithProviders=RouterModule.forRoot(appRoutesFront);

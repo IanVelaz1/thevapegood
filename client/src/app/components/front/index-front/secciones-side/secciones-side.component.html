@@ -66,10 +66,14 @@
     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
       <div class="row">
         <div *ngIf="imagenesIzquierda[0]" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-          <img src="{{imagenesIzquierda[0].imagen.secure_url}}" class="img-fluid img-side" max-width="100%;" alt="" id="img-1">
+          <a href="{{imagenesIzquierda[0].url}}">
+              <img src="{{imagenesIzquierda[0].imagen.secure_url}}" class="img-fluid img-side" max-width="100%;" alt="" id="img-1">
+          </a>
         </div>
         <div *ngIf="imagenesIzquierda[1]" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-          <img src="{{imagenesIzquierda[1].imagen.secure_url}}" class="img-fluid img-side" max-width="100%;" alt="">
+           <a href="{{imagenesIzquierda[1].url}}">
+              <img src="{{imagenesIzquierda[1].imagen.secure_url}}" class="img-fluid img-side" max-width="100%;" alt="">
+           </a>
         </div>
       </div>
       <br>
@@ -83,16 +87,16 @@
             </div>
             <div class="row">
               <div class="col-12">
-                <div class="row">
+                <div class="row" *ngFor="let producto of arrayProductos1">
                   <div class="col-6">
-                    <img src="https://www.androidcentral.com/sites/androidcentral.com/files/topic_images/2014/Cell-Phone-Plans-topic-page-graphic.png"
+                    <img src="{{producto.imagenesProd[0].secure_url}}"
                       height="50%;" class="img-fluid" alt="">
                   </div>
                   <div class="col-6">
                     <div class="row" style="height: 100%; ">
                       <div class="col-12" style="height: 100%;">
-                        <p class="titulo">Titulo</p>
-                        <p class="precio">$550</p>
+                        <p class="titulo">{{producto.nombreProd}}</p>
+                        <p class="precio">{{producto.precioVentaProd|currency}}</p>
                       </div>
                     </div>
                   </div>
@@ -124,13 +128,17 @@
       </div>
       <div class="row">
         <div *ngIf="imagenesIzquierda[2]" class="col-12">
+          <a href="{{imagenesIzquierda[2].url}}">
           <img src="{{imagenesIzquierda[2].imagen.secure_url}}" class="img-fluid img-side" max-width="100%;" alt="">
+        </a>
         </div>
       </div>
       <br>
       <div class="row">
         <div *ngIf="imagenesIzquierda[3]" class="col-12">
+          <a href="{{imagenesIzquierda[3].url}}">
           <img src="{{imagenesIzquierda[3].imagen.secure_url}}" class="img-fluid img-side" max-width="100%;" alt="">
+        </a>
         </div>
       </div>
     </div>

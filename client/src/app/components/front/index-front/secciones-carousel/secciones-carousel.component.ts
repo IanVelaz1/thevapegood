@@ -1,5 +1,6 @@
 import { Component, OnInit, Input,ChangeDetectorRef } from '@angular/core';
 import { NguCarousel } from '@ngu/carousel';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -9,7 +10,7 @@ import { NguCarousel } from '@ngu/carousel';
 })
 export class SeccionesCarouselComponent implements OnInit {
 
-  constructor(private ref:ChangeDetectorRef) { }
+  constructor(private ref:ChangeDetectorRef,private router:Router) { }
   public carouselOne: NguCarousel;
   imagenesCarousel:string[]=['https://johnlewis.scene7.com/is/image/JohnLewis/microsoft-camaign-block-030418?','https://johnlewis.scene7.com/is/image/JohnLewis/microsoft-camaign-block-030418?'];
 
@@ -171,7 +172,9 @@ export class SeccionesCarouselComponent implements OnInit {
 
  };
 
-
+ navegar(url){
+   this.router.navigate([url]);
+ }
 
 
 }

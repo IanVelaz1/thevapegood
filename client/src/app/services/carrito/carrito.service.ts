@@ -19,4 +19,8 @@ export class CarritoService {
    return this.cookieService.get('carrito');
   }
 
+  eliminarProductosCarrito(){
+    this.cookieService.delete('carrito');
+  }
+
 }

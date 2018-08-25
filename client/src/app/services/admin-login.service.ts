@@ -13,7 +13,7 @@ export class AdminLoginService {
   constructor(private http:HttpClient) { }
 
   validarCuenta(admin){
-    return this.http.post(`${this.domain}/admin/login`,admin);
+    return this.http.post(`/admin/login`,admin);
   }
 
   storeUserData(token,user){
@@ -34,7 +34,7 @@ export class AdminLoginService {
 
   getAdmin(){
     this.cargarToken();
-    return this.http.get(`${this.domain}/admin/perfil`,{headers:{'Authorization':this.authToken}});
+    return this.http.get(`/admin/perfil`,{headers:{'Authorization':this.authToken}});
   }
 
   cerrarSesion(){
@@ -45,19 +45,19 @@ export class AdminLoginService {
   }
 
   editarAdmin(admin){
-    return this.http.post(`${this.domain}/admin/compare`,admin);
+    return this.http.post(`/admin/compare`,admin);
   }
 
   recuperarAdministradores(){
-    return this.http.get(`${this.domain}/admin`);
+    return this.http.get(`/admin`);
   }
 
   recuperarAdminEspecifico(id){
-    return this.http.get(`${this.domain}/admin/perfil/`+id);
+    return this.http.get(`/admin/perfil/`+id);
   }
 
   crearAdmin(admin){
-    return this.http.post(`${this.domain}/admin`,admin);
+    return this.http.post(`/admin`,admin);
   }
 
 }

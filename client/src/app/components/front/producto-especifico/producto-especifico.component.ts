@@ -3,6 +3,7 @@ import { Router,ActivatedRoute } from '@angular/router';
 import { ProductoService } from '../../../services/productos/producto.service';
 import { Producto } from '../../../interfaces/producto';
 import { ColeccionesService } from '../../../services/colecciones/colecciones.service';
+import { CarritoService } from '../../../services/carrito/carrito.service';
 @Component({
   selector: 'app-producto-especifico',
   templateUrl: './producto-especifico.component.html',
@@ -10,7 +11,7 @@ import { ColeccionesService } from '../../../services/colecciones/colecciones.se
 })
 export class ProductoEspecificoComponent implements OnInit {
 
-  constructor(private router:Router,private route:ActivatedRoute,private httpProducto:ProductoService,private httpColeccion:ColeccionesService) { }
+  constructor(private router:Router,private route:ActivatedRoute,private httpProducto:ProductoService,private httpColeccion:ColeccionesService,private httpCarrito:CarritoService) { }
 
   idProducto;
   ngOnInit() {
@@ -56,14 +57,60 @@ export class ProductoEspecificoComponent implements OnInit {
      this.objProducto=producto;
      this.objetoProducto=this.objProducto.producto;
      this.imagenProd=this.objetoProducto.imagenesProd[0].secure_url;
-     console.log('====================================');
-     console.log(this.objetoProducto);
-     console.log('====================================');
+     this.recuperarProductosCarrito();
    });
   }
 
   verImagen(url){
     this.imagenProd=url;
+  }
+
+  objCarrito;
+  arrayCarrito:Producto[]=[];
+  recuperarProductosCarrito(){
+   
+   if(this.httpCarrito.carritoExiste()){
+    this.objCarrito=JSON.parse(this.httpCarrito.recuperarProductosCarrito());
+    this.arrayCarrito=this.objCarrito.carrito;
+    this.verificarProductosCarrito(this.arrayCarrito);
+   }
+  }
+
+  verificarProductosCarrito(array:Producto[]){ 
+    for(let i=0;i<array.length;i++){
+      if(this.idProducto==array[i]._id){
+        this.objetoProducto.addedCart=true;
+      }
+    }
+  }
+
+  agregarCarrito(){
+    let objetoCarrito={
+      carrito:[]
+    }
+    let stringCarrito:string="";
+    if(this.httpCarrito.carritoExiste()==false){
+      this.arrayCarrito.push(this.objetoProducto);
+      objetoCarrito={
+        carrito:this.arrayCarrito
+      }
+      stringCarrito=JSON.stringify(objetoCarrito);
+      this.httpCarrito.agregarCarrito(stringCarrito);
+      this.router.navigate(['/redirect/carrito/producto/'+this.idProducto]);
+    }else{
+      this.arrayCarrito.push(this.objetoProducto);
+      objetoCarrito={
+        carrito:this.arrayCarrito
+      }
+      stringCarrito=JSON.stringify(objetoCarrito);
+      console.log('====================================');
+      console.log(this.arrayCarrito);
+      console.log('====================================');
+      this.httpCarrito.eliminarProductosCarrito();
+      this.httpCarrito.agregarCarrito(stringCarrito);
+    }
+    
+
   }
 
 

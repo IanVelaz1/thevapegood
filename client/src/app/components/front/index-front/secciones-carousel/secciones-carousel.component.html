@@ -10,7 +10,7 @@
             <div class="tile" [ngStyle]="{'background-image': 'url(' + carousel.imagenCarousel.secure_url + ')'}">
               <div class="text-container">
                 <p class="texto-img">{{carousel.texto}}</p>
-                <button class="btn-carousel">{{carousel.textoBoton}}</button>
+                <a class="btn-carousel" href="{{carousel.urlExterno}}" >{{carousel.textoBoton}}</a>
               </div>
             </div>
           </ngu-item>
@@ -21,12 +21,16 @@
      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-0 col-0">
         <div class="row" style="margin-bottom: 20px;">
           <div class="col-12">
-            <img src="{{imagenesDerechaSuperior.imagenSuperior.secure_url}}" style="height: 190px;  width: 100%;" class="img-fluid" alt="">
+            <a href="{{imagenesDerechaSuperior.imagenSuperior.urlExterno}}">
+                <img src="{{imagenesDerechaSuperior.imagenSuperior.secure_url}}" style="height: 190px;  width: 100%;" class="img-fluid" alt="">
+            </a>
           </div>
         </div>
         <div class="row">
           <div class="col-12">
-              <img src="{{imagenesDerechaSuperior.imagenInferior.secure_url}}"  style="height: 190px; width: 100%;" class="img-fluid" alt="">
+            <a href="{{imagenesDerechaSuperior.imagenInferior.urlExterno}}">
+                <img src="{{imagenesDerechaSuperior.imagenInferior.secure_url}}"  style="height: 190px; width: 100%;" class="img-fluid" alt="">
+            </a>
           </div>
         </div>
     </div>

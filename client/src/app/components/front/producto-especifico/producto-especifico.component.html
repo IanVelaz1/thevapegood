@@ -44,7 +44,15 @@
       </div>
       <div class="row">
         <div class="col-12">
-          <button class="btn-carrito"><span><i class="fas fa-cart-plus"></i> </span>AGREGAR AL CARRITO</button>
+          <label for="cantidad">Cantidad</label>
+          <input type="number" class="form-control" [(ngModel)]="objetoProducto.cantidadCarrito" *ngIf="objetoProducto.addedCart==false">
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-12">
+          <button class="btn-carrito" *ngIf="objetoProducto.addedCart==false" (click)="agregarCarrito()"><span><i class="fas fa-cart-plus"></i></span>AGREGAR AL CARRITO</button>
+          <button class="btn-carrito" *ngIf="objetoProducto.addedCart==true"><span><i class="fas fa-cart-plus"></i> </span>Ver en carrito</button>
         </div>
       </div>
   </div>

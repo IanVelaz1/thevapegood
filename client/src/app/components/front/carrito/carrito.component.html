@@ -13,7 +13,7 @@
               <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12" style="text-align: center;">
                <p class="titulo">Imagen</p>
              </div>
-              <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-5" style="text-align: center;">
+              <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12" style="text-align: center;">
                <p class="titulo">Producto</p>
              </div>
               <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-12" style="text-align: center;">
@@ -27,7 +27,7 @@
                 <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 cols" style="text-align: center;">
                  <img src="{{producto.imagenesProd[0].secure_url}}" class="img-fluid" alt="" style="max-height: 150px; margin-bottom: 10px; margin-top: 10px;">
                </div>
-                <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-12 cols" style="text-align: center;">
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 cols" style="text-align: center;">
                  <p class="sub-titulo">{{producto.nombreProd}}</p>
                </div>
                 <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-12 cols" style="text-align: center;">
@@ -36,6 +36,7 @@
                 <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-12 cols" style="text-align: center;">
                  <p class="sub-titulo">{{producto.precioVentaProd|multiCarrito:producto.cantidadCarrito | currency}}</p>
                </div>
+                <div class="col-xl-1 col-lg-1 col-md-1 col-sm-12 col-12 cols" style="text-align: center;"><button class="btn btn-danger" style="position: relative; top: 50%; transform: translateY(-50%)" (click)="eliminarDeCarrito(producto._id)"><i class="fas fa-trash-alt"></i></button></div>
               </div>
               <div class="row">
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12" style="border: 1px solid #E1E1E1">
