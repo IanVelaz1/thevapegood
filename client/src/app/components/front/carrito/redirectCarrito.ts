@@ -11,6 +11,6 @@ export class reditectCarrito implements OnInit {
   }
 
   ngOnInit(){
-    this.router.navigate(['']);
+  
   }
 }

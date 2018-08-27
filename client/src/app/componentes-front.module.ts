@@ -53,9 +53,9 @@ const appRoutesFront:Routes=[
    {path:'usuario/confirmacion',component:ConfirmacionUsuarioComponent},
    {path:'usuario/iniciar-sesion',component:IniciarSesionComponent},
    {path:'usuarios/perfil',component:PerfilComponent,canActivate:[usuarioGuard]},
-   {path:'colecciones/producto/:idProducto',component:ProductoEspecificoComponent},
+   {path:'producto/:idProducto',component:ProductoEspecificoComponent},
    {path:'carrito',component:CarritoComponent},
-   {path:'redirect/carrito',component:reditectCarrito},
+   {path:'redirect/carrito',component:NavFrontComponent},
    {path:'redirect/coleccion/:id',component:redirectCarritoCol},
    {path:'redirect/carrito/eliminar',component:redirectCarritoEliminar},
    {path:'redirect/carrito/producto/:id',component:redirectCarritoProducto}

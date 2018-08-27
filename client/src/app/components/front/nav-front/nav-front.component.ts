@@ -22,7 +22,7 @@ export class NavFrontComponent implements OnInit {
   interval;
   ngOnInit() {
     this.recuperarMenuInterfaz();
-    this.recuperarCarrito();
+      this.recuperarCarrito();
     this.userLoggedIn=this.httpUser.loggedIn();
   }
 
@@ -94,7 +94,7 @@ export class NavFrontComponent implements OnInit {
   totalCarrito:number=0;
   obtenerTotalCarrito(){
      for(let i=0;i<this.arrayProductosCarrito.length;i++){
-       this.totalCarrito=this.totalCarrito+this.arrayProductosCarrito[i].precioVentaProd;
+       this.totalCarrito=this.totalCarrito+this.arrayProductosCarrito[i].precioVentaProd*this.arrayProductosCarrito[i].cantidadCarrito;
      }
   }
 
