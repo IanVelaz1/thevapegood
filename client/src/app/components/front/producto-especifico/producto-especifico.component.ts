@@ -57,7 +57,7 @@ export class ProductoEspecificoComponent implements OnInit {
      this.objProducto=producto;
      this.objetoProducto=this.objProducto.producto;
      this.imagenProd=this.objetoProducto.imagenesProd[0].secure_url;
-     this.recuperarProductosCarrito();
+     this.verificarProductosCarrito();
    });
   }
 
@@ -67,21 +67,13 @@ export class ProductoEspecificoComponent implements OnInit {
 
   objCarrito;
   arrayCarrito:Producto[]=[];
-  recuperarProductosCarrito(){
-   
-   if(this.httpCarrito.carritoExiste()){
-    this.objCarrito=JSON.parse(this.httpCarrito.recuperarProductosCarrito());
-    this.arrayCarrito=this.objCarrito.carrito;
-    this.verificarProductosCarrito(this.arrayCarrito);
-   }
-  }
-
-  verificarProductosCarrito(array:Producto[]){ 
-    for(let i=0;i<array.length;i++){
-      if(this.idProducto==array[i]._id){
-        this.objetoProducto.addedCart=true;
-      }
-    }
+  verificarProductosCarrito(){ 
+    let objetoCarrito=JSON.parse(this.httpCarrito.recuperarProductosCarrito());
+     for(let i=0;i<objetoCarrito.carrito.length;i++){
+       if(objetoCarrito.carrito[i]._id==this.idProducto){
+         this.objetoProducto.addedCart=true;
+       }
+     }
   }
 
   agregarCarrito(){
@@ -96,18 +88,17 @@ export class ProductoEspecificoComponent implements OnInit {
       }
       stringCarrito=JSON.stringify(objetoCarrito);
       this.httpCarrito.agregarCarrito(stringCarrito);
-      this.router.navigate(['/redirect/carrito/producto/'+this.idProducto]);
+      this.router.navigateByUrl('/redirect/carrito',{skipLocationChange:true}).then(()=>{
+        this.router.navigate(['/producto/'+this.idProducto]);
+      });
     }else{
-      this.arrayCarrito.push(this.objetoProducto);
-      objetoCarrito={
-        carrito:this.arrayCarrito
-      }
+      objetoCarrito=JSON.parse(this.httpCarrito.recuperarProductosCarrito());
+      objetoCarrito.carrito.push(this.objetoProducto);
       stringCarrito=JSON.stringify(objetoCarrito);
-      console.log('====================================');
-      console.log(this.arrayCarrito);
-      console.log('====================================');
-      this.httpCarrito.eliminarProductosCarrito();
       this.httpCarrito.agregarCarrito(stringCarrito);
+      this.router.navigateByUrl('/redirect/carrito',{skipLocationChange:true}).then(()=>{
+        this.router.navigate(['/producto/'+this.idProducto]);
+      });
     }
     
 

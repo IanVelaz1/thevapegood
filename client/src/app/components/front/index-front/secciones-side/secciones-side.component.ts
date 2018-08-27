@@ -235,13 +235,18 @@ export class SeccionesSideComponent implements OnInit {
      }
      stringCarrito=JSON.stringify(objetoCarrito);
      this.httpCarrito.agregarCarrito(stringCarrito)
-     this.router.navigate(['/redirect/carrito']);
+     this.router.navigateByUrl('/redirect/carrito',{skipLocationChange:true}).then(()=>{
+      this.router.navigate(['/']);
+     });
+     
    }else{
      objetoCarrito=JSON.parse(this.httpCarrito.recuperarProductosCarrito());
      objetoCarrito.carrito.push(objetoProducto);
      stringCarrito=JSON.stringify(objetoCarrito);
      this.httpCarrito.agregarCarrito(stringCarrito);
-     this.router.navigate(['/redirect/carrito']);
+     this.router.navigateByUrl('/redirect/carrito',{skipLocationChange:true}).then(()=>{
+      this.router.navigate(['/']);
+     });
    }
     console.log('====================================');
     console.log(objetoCarrito);
@@ -275,7 +280,7 @@ verificarProductos2(){
 }
 
  verProducto(id){
-  this.router.navigate(['/colecciones/producto/'+id]);
+  this.router.navigate(['/producto/'+id]);
  }
 
 

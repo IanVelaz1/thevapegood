@@ -297,7 +297,7 @@ abrirModal(producto){
  }
 
  verProducto(id){
-   this.router.navigate(['/colecciones/producto/'+id]);
+   this.router.navigate(['/producto/'+id]);
  }
 
  arrayCarrito:String[]=[];
@@ -331,12 +331,17 @@ abrirModal(producto){
      stringCarrito=JSON.stringify(objetoCarrito);
      this.httpCarrito.agregarCarrito(stringCarrito);
      this.router.navigate(['/redirect/coleccion/'+this.idColeccion]);
+     this.router.navigateByUrl('/redirect/carrito',{skipLocationChange:true}).then(()=>{
+       this.router.navigate(['/colecciones/'+this.idColeccion]);
+     });
    }else{
      objetoCarrito=JSON.parse(this.httpCarrito.recuperarProductosCarrito());
      objetoCarrito.carrito.push(objetoProducto);
      stringCarrito=JSON.stringify(objetoCarrito);
      this.httpCarrito.agregarCarrito(stringCarrito);
-     this.router.navigate(['/redirect/coleccion/'+this.idColeccion]);
+     this.router.navigateByUrl('/redirect/carrito',{skipLocationChange:true}).then(()=>{
+      this.router.navigate(['/colecciones/'+this.idColeccion]);
+    });
    }
     console.log('====================================');
     console.log(objetoCarrito);
